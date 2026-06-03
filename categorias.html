@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categorias — Bikes Summit Awards | 17 Prémios</title>
+  <meta name="description" content="As 17 categorias dos Bikes Summit Awards. Critérios, requisitos e método de votação de cada prémio da indústria do ciclismo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<!-- [ELEMENTOR] HEADER global -->
+<header class="bsa-header">
+  <div class="bsa-container bsa-header__inner">
+    <a class="bsa-logo" href="index.html" aria-label="Bikes Summit Awards — início"><img src="assets/img/logo-light.png" alt="Bikes Summit Awards" /></a>
+    <nav class="bsa-nav" aria-label="Navegação principal">
+      <a class="bsa-nav__link" href="como-funciona.html">Como Funciona</a>
+      <a class="bsa-nav__link is-active" href="categorias.html">Categorias</a>
+      <a class="bsa-nav__link" href="patrocinadores.html">Patrocinadores</a>
+      <a class="bsa-nav__link" href="contactos.html">Contactos</a>
+    </nav>
+    <div class="bsa-header__cta">
+      <div class="bsa-social-row bsa-social-row--header" aria-label="Redes sociais">
+        <a class="bsa-social bsa-social--sm" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a class="bsa-social bsa-social--sm" href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a class="bsa-social bsa-social--sm" href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      </div>
+      <a class="bsa-btn bsa-btn--ghost bsa-btn--sm" href="bilhetes.html">Bilhetes</a>
+      <a class="bsa-btn bsa-btn--gold bsa-btn--sm" href="inscricoes.html">Inscrever <span class="bsa-arrow" aria-hidden="true">→</span></a>
+      <button class="bsa-burger" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- [ELEMENTOR] PAGE HERO -->
+<section class="bsa-page-hero">
+  <div class="bsa-mesh" aria-hidden="true"></div>
+  <div class="bsa-iso" aria-hidden="true"></div>
+  <div class="bsa-container" style="position:relative;z-index:2">
+    <nav class="bsa-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Início</a> <span aria-hidden="true">/</span> Categorias</nav>
+    <h1 class="bsa-display" style="font-size:clamp(2.4rem,6vw,4.6rem);margin:1.2rem 0 1.2rem">17 prémios.<br />Uma <span class="bsa-shine">indústria.</span></h1>
+    <p class="bsa-lead">De marcas e distribuidores a heróis anónimos e media — cada categoria reconhece a excelência numa frente diferente do ciclismo. Clique para ver critérios, requisitos e método de votação.</p>
+  </div>
+</section>
+
+<!-- [ELEMENTOR] SECÇÃO: GRID DE CATEGORIAS (Loop Grid + Popup) -->
+<section class="bsa-section" style="padding-top:clamp(1rem,3vw,2rem)">
+  <div class="bsa-container">
+    <div class="bsa-cat-head">
+      <div class="bsa-section__head" style="margin-bottom:0" data-reveal>
+        <span class="bsa-eyebrow">Filtrar por método de votação</span>
+      </div>
+      <div class="bsa-filters" data-reveal>
+        <button class="bsa-chip is-active" data-filter="all">Todas</button>
+        <button class="bsa-chip" data-filter="panel">Painel de Jurados</button>
+        <button class="bsa-chip" data-filter="public">Voto Público</button>
+        <button class="bsa-chip" data-filter="team">Equipa BSA</button>
+      </div>
+    </div>
+
+    <div class="bsa-cat-grid" id="bsa-cat-grid">
+      <!-- cartões injetados por main.js -->
+    </div>
+
+    <p class="bsa-hint" style="text-align:center;margin-top:2rem" data-reveal>Clique em qualquer categoria para ver os critérios completos, requisitos e demonstração de excelência.</p>
+  </div>
+</section>
+
+<!-- [ELEMENTOR] CTA FINAL -->
+<section class="bsa-section" style="padding-top:0">
+  <div class="bsa-container">
+    <div class="bsa-cta-banner" data-reveal>
+      <div class="bsa-mesh" aria-hidden="true"></div>
+      <span class="bsa-eyebrow is-center" style="justify-content:center">Encontrou a sua categoria?</span>
+      <h2 class="bsa-h2">Coloque o seu nome em jogo.</h2>
+      <p class="bsa-lead" style="margin:0 auto 2rem">Uma candidatura por categoria. O processo é simples e leva poucos minutos.</p>
+      <div class="bsa-flex" style="gap:.9rem;justify-content:center;flex-wrap:wrap">
+        <a class="bsa-btn bsa-btn--gold" href="inscricoes.html">Submeter inscrição <span class="bsa-arrow" aria-hidden="true">→</span></a>
+        <a class="bsa-btn bsa-btn--ghost" href="como-funciona.html">Como funciona</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- [ELEMENTOR] FOOTER global -->
+<footer class="bsa-footer">
+  <div class="bsa-container">
+    <div class="bsa-footer__grid">
+      <div class="bsa-footer__brand">
+        <div class="bsa-footer__logo"><img src="assets/img/logo-light.png" alt="Bikes Summit Awards" /></div>
+        <p>A primeira edição dos prémios que celebram a excelência, a inovação e as pessoas que movem a indústria do ciclismo.</p>
+        <div class="bsa-social-row bsa-social-row--footer" aria-label="Redes sociais">
+          <a class="bsa-social" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a class="bsa-social" href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a class="bsa-social" href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div class="bsa-footer__col"><h4>Explorar</h4><a href="como-funciona.html">Como Funciona</a><a href="categorias.html">Categorias</a><a href="patrocinadores.html">Patrocinadores</a><a href="contactos.html">Contactos</a></div>
+      <div class="bsa-footer__col"><h4>Participar</h4><a href="inscricoes.html">Inscrições</a><a href="bilhetes.html">Bilhetes</a><a href="patrocinadores.html">Patrocínios</a><a href="contactos.html">Imprensa</a></div>
+      <div class="bsa-footer__col"><h4>Newsletter</h4><p style="font-size:.9rem">Receba novidades sobre a 1ª edição.</p><form class="bsa-newsletter" data-prototype><input class="bsa-input" type="email" placeholder="O seu email" required aria-label="Email" /><button class="bsa-btn bsa-btn--gold bsa-btn--sm" type="submit" aria-label="Subscrever">→</button></form></div>
+    </div>
+    <div class="bsa-footer__bottom"><p>© <span data-year>2026</span> Bikes Summit Awards · 1ª Edição</p><p>Protótipo · Privacidade · Termos</p></div>
+  </div>
+</footer>
+
+<!-- [ELEMENTOR] POPUP: detalhe da categoria (modal centrado) -->
+<div class="bsa-modal" id="bsa-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="bsa-modal-title">
+  <div class="bsa-modal__overlay" data-close></div>
+  <div class="bsa-modal__panel">
+    <button class="bsa-modal__close" data-close aria-label="Fechar"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <div id="bsa-modal-body"></div>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
