@@ -509,7 +509,7 @@ body.bsa-menu-open .bsa-burger span:nth-child(3) { top: 22px; transform: rotate(
 .bsa-cta-banner { position: relative; overflow: hidden; border-radius: var(--bsa-radius-lg); padding: clamp(2.5rem, 6vw, 5rem); background: linear-gradient(120deg, var(--bsa-surface-2), var(--bsa-bg-soft)); box-shadow: inset 0 0 0 1px var(--bsa-border); text-align: center; }
 .bsa-cta-banner .bsa-mesh { opacity: 0.8; }
 .bsa-cta-banner > * { position: relative; z-index: 2; }
-.bsa-cta-banner .bsa-h2 { margin: 1rem auto 1.4rem; max-width: 18ch; }
+.bsa-cta-banner .bsa-h2 { margin: 1rem auto 1.4rem; max-width: 28ch; text-wrap: pretty; }
 
 /* ---------- COUNTDOWN ---------- */
 .bsa-countdown { display: flex; gap: 0.7rem; flex-wrap: wrap; }
