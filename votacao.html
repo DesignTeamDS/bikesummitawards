@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Galeria de Honra · 2027 — Bikes Summit Awards</title>
-  <meta name="description" content="Galeria de Honra dos Bikes Summit Awards — os vencedores da edição 2027 (simulação de apresentação)." />
+  <title>Votação — Bikes Summit Awards | Voto Público</title>
+  <meta name="description" content="Vote nas categorias de Voto Público dos Bikes Summit Awards. Escolha o seu favorito entre os 5 finalistas de cada prémio." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="bsa-nav__item bsa-nav__item--sub">
-        <a class="bsa-nav__link is-active" href="galeria-2027.html">Galeria de Honra <span class="bsa-nav__caret" aria-hidden="true">▾</span></a>
+        <a class="bsa-nav__link" href="galeria-2027.html">Galeria de Honra <span class="bsa-nav__caret" aria-hidden="true">▾</span></a>
         <div class="bsa-nav__sub">
           <a href="galeria-2027.html">Vencedores 2027</a>
         </div>
@@ -42,7 +42,7 @@
     <div class="bsa-header__cta">
       <a class="bsa-btn bsa-btn--ghost bsa-btn--sm" href="bilhetes.html">Bilhetes</a>
       <a class="bsa-btn bsa-btn--gold bsa-btn--sm" href="inscricoes.html">Inscrever <span class="bsa-arrow" aria-hidden="true">→</span></a>
-      <a class="bsa-btn bsa-btn--ghost bsa-btn--sm" href="votacao.html">Votação</a>
+      <a class="bsa-btn bsa-btn--ghost bsa-btn--sm is-active" href="votacao.html">Votação</a>
       <button class="bsa-burger" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -55,40 +55,37 @@
   <div class="bsa-mesh" aria-hidden="true"></div>
   <div class="bsa-iso" aria-hidden="true"></div>
   <div class="bsa-container" style="position:relative;z-index:2">
-    <nav class="bsa-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Início</a> <span aria-hidden="true">/</span> Galeria de Honra <span aria-hidden="true">/</span> 2027</nav>
-    <h1 class="bsa-display" style="font-size:clamp(2.4rem,6vw,4.6rem);margin:1.2rem 0 1.2rem">Galeria de Honra<br />Edição <span class="bsa-shine">2027.</span></h1>
-    <p class="bsa-lead">Os nomes que entraram para a história dos Bikes Summit Awards — os vencedores de cada uma das 18 categorias.</p>
+    <nav class="bsa-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Início</a> <span aria-hidden="true">/</span> Votação</nav>
+    <h1 class="bsa-display" style="font-size:clamp(2.4rem,6vw,4.6rem);margin:1.2rem 0 1.2rem">Vote nos melhores.<br />A indústria <span class="bsa-shine">decide.</span></h1>
+    <p class="bsa-lead">Nas categorias de Voto Público, são os profissionais e a comunidade do ciclismo que escolhem os vencedores. Selecione uma categoria, conheça os 5 finalistas e vote no seu favorito.</p>
   </div>
 </section>
 
-<!-- [ELEMENTOR] SECÇÃO: VENCEDORES (Loop Grid) -->
-<section class="bsa-section" style="padding-top:clamp(1rem,3vw,2rem)">
+<!-- [ELEMENTOR] SECÇÃO: AVISO (votação ainda não aberta) -->
+<section class="bsa-section" style="padding-top:clamp(1rem,3vw,2rem);padding-bottom:0">
+  <div class="bsa-container">
+    <div class="bsa-vote-note" data-reveal>
+      <span class="bsa-vote-note__ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg>
+      </span>
+      <p><strong>Pré-visualização.</strong> A votação só abre quando terminarem as inscrições e o painel de jurados anunciar os finalistas de cada categoria. Esta página demonstra como decorrerá o processo de voto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- [ELEMENTOR] SECÇÃO: GRID DE CATEGORIAS DE VOTO PÚBLICO -->
+<section class="bsa-section" style="padding-top:clamp(1.5rem,4vw,2.5rem)">
   <div class="bsa-container">
     <div class="bsa-section__head" data-reveal>
-      <span class="bsa-eyebrow">Vencedores · 2027</span>
-      <h2 class="bsa-h2" style="margin-top:1rem">Os melhores do ano.</h2>
+      <span class="bsa-eyebrow">Voto Público</span>
+      <h2 class="bsa-h2" style="margin-top:1rem">Categorias em votação.</h2>
     </div>
 
-    <!-- cartões de vencedores injetados por main.js (WINNERS_2027) -->
-    <div class="bsa-winners-grid" id="bsa-winners-grid"></div>
-
-    <p class="bsa-hint" style="text-align:center;margin-top:2rem" data-reveal>Simulação de apresentação — categorias reais; logótipos e vencedores ilustrativos. Numa edição real, cada cartão exibe o logótipo oficial da marca vencedora.</p>
-  </div>
-</section>
-
-<!-- [ELEMENTOR] CTA FINAL -->
-<section class="bsa-section" style="padding-top:0">
-  <div class="bsa-container">
-    <div class="bsa-cta-banner" data-reveal>
-      <div class="bsa-mesh" aria-hidden="true"></div>
-      <span class="bsa-eyebrow is-center" style="justify-content:center">O próximo nome pode ser o seu</span>
-      <h2 class="bsa-h2">Faça história na próxima edição.</h2>
-      <p class="bsa-lead" style="margin:0 auto 2rem">Conheça as categorias e submeta a sua candidatura — quem sabe não entra também para a Galeria de Honra.</p>
-      <div class="bsa-flex" style="gap:.9rem;justify-content:center;flex-wrap:wrap">
-        <a class="bsa-btn bsa-btn--gold" href="inscricoes.html">Submeter inscrição <span class="bsa-arrow" aria-hidden="true">→</span></a>
-        <a class="bsa-btn bsa-btn--ghost" href="categorias.html">Ver categorias</a>
-      </div>
+    <div class="bsa-cat-grid" id="bsa-vote-grid">
+      <!-- cartões injetados por main.js (apenas categorias de Voto Público) -->
     </div>
+
+    <p class="bsa-hint" style="text-align:center;margin-top:2rem" data-reveal>Um voto por pessoa em cada categoria. Finalistas e marcas são ilustrativos (protótipo).</p>
   </div>
 </section>
 
@@ -114,6 +111,15 @@
     <div class="bsa-footer__bottom"><p>©Bikes Summit Awards</p><p>Privacidade · Termos</p></div>
   </div>
 </footer>
+
+<!-- [ELEMENTOR] POPUP: votação (modal centrado, multi-passo) -->
+<div class="bsa-modal" id="bsa-vote-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="bsa-vote-title">
+  <div class="bsa-modal__overlay" data-close></div>
+  <div class="bsa-modal__panel">
+    <button class="bsa-modal__close" data-close aria-label="Fechar"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <div id="bsa-vote-body"></div>
+  </div>
+</div>
 
 <script src="assets/js/main.js"></script>
 </body>
