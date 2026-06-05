@@ -204,6 +204,7 @@ body::after {
 
 /* Submenus (dropdowns) */
 .bsa-nav__item { position: relative; display: flex; align-items: center; }
+.bsa-nav__link--static { cursor: default; }
 .bsa-nav__caret { font-size: 0.62em; color: var(--bsa-faint); margin-left: 0.1em; display: inline-block; transition: transform .3s var(--bsa-ease), color .3s var(--bsa-ease); }
 .bsa-nav__item:hover .bsa-nav__caret { transform: rotate(180deg); color: var(--bsa-gold); }
 .bsa-nav__sub {
@@ -608,6 +609,10 @@ body.bsa-menu-open .bsa-burger span:nth-child(3) { top: 22px; transform: rotate(
 .bsa-winner-card__name { font-family: var(--bsa-font-display); font-weight: 700; font-size: 1.28rem; line-height: 1.15; letter-spacing: -0.01em; }
 .bsa-winner-card__badge { display: inline-flex; align-items: center; gap: 0.45em; margin-top: 0.95rem; font-family: var(--bsa-font-mono); font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; color: #1c1604; background: linear-gradient(180deg, var(--bsa-gold-bright), var(--bsa-gold)); padding: 0.5em 0.85em; border-radius: 100px; }
 .bsa-winner-card__badge svg { width: 13px; height: 13px; }
+.bsa-winner-card__podium { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--bsa-border); display: flex; flex-direction: column; gap: 0.5rem; }
+.bsa-winner-card__place { display: flex; align-items: baseline; justify-content: center; gap: 0.55rem; }
+.bsa-winner-card__pos { font-family: var(--bsa-font-mono); font-size: 0.74rem; font-weight: 600; color: var(--bsa-gold); flex: none; }
+.bsa-winner-card__pname { font-size: 0.95rem; color: var(--bsa-muted); }
 
 /* ============================================================
    PROSE (Regulamento)
