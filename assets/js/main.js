@@ -438,24 +438,26 @@
      GALERIA DE HONRA — vencedores (simulação edição 2027)
      NOTA: logótipos/marcas e nomes são ilustrativos (protótipo).
   --------------------------------------------------------- */
+  // [categoria, vencedor, 2.º lugar, 3.º lugar] — 2.º/3.º apenas em texto.
+  // Categorias individuais (Mulher, Mecânico, Herói) têm só vencedor.
   const WINNERS_2027 = [
-    ["Marca de Bicicletas do Ano", "VeloMax Bikes"],
-    ["Marca de Peças & Acessórios do Ano", "CycloGear"],
-    ["Inovação do Ano", "AeroDrive Systems"],
-    ["Distribuidor de Bicicletas do Ano", "IberBike Distribuição"],
-    ["Distribuidor de Peças & Acessórios do Ano", "ProParts Iberia"],
-    ["Distribuidor Especialista do Ano", "E-Volt Distribuição"],
-    ["Retalhista Independente (IBD) do Ano", "Bike Garage Lisboa"],
-    ["Retalhista Omnicanal do Ano", "CicloStore"],
-    ["Melhores Serviços para o Retalho", "RetailUp Solutions"],
-    ["Retalhista Especialista do Ano", "Gravel & Co."],
-    ["Prémio de Advocacia do Ciclismo", "Movimento +Bici"],
-    ["Campeão da Diversidade", "Rodas para Todos"],
+    ["Marca de Bicicletas do Ano", "VeloMax Bikes", "TerraCycle", "Norte Bike"],
+    ["Marca de Peças & Acessórios do Ano", "CycloGear", "ProRide", "PedalTech"],
+    ["Inovação do Ano", "AeroDrive Systems", "SmartWheel", "EcoCharge"],
+    ["Distribuidor de Bicicletas do Ano", "IberBike Distribuição", "Roda Forte", "BiciCentral"],
+    ["Distribuidor de Peças & Acessórios do Ano", "ProParts Iberia", "Atlantic Parts", "VeloSupply"],
+    ["Distribuidor Especialista do Ano", "E-Volt Distribuição", "MTB Pro", "Gravel One"],
+    ["Retalhista Independente (IBD) do Ano", "Bike Garage Lisboa", "Loja do Ciclista", "Oficina Norte"],
+    ["Retalhista Omnicanal do Ano", "CicloStore", "BikeShop24", "Pedal Online"],
+    ["Melhores Serviços para o Retalho", "RetailUp Solutions", "ShopFlow", "BikePOS"],
+    ["Retalhista Especialista do Ano", "Gravel & Co.", "E-Bike Center", "Vintage Velo"],
+    ["Prémio de Advocacia do Ciclismo", "Movimento +Bici", "Ruas Livres", "Pedalar Seguro"],
+    ["Campeão da Diversidade", "Rodas para Todos", "Ciclismo Inclusivo", "Bike & All"],
     ["Mulher do Ano", "Helena Marques"],
-    ["Evento do Ano", "Granfondo Atlântico"],
+    ["Evento do Ano", "Granfondo Atlântico", "Volta Urbana", "MTB Festival"],
     ["Mecânico do Ano", "Paulo Trindade"],
     ["Herói Anónimo do Ano", "Carla Sousa"],
-    ["Media de Ciclismo do Ano", "Pedal Magazine"]
+    ["Media de Ciclismo do Ano", "Pedal Magazine", "Ciclo Podcast", "Duas Rodas TV"]
   ];
   const winnersGrid = $("#bsa-winners-grid");
   if (winnersGrid) {
@@ -464,13 +466,20 @@
       const w = n.replace(/[^\p{L}\s]/gu, " ").split(/\s+/).filter(Boolean);
       return (w.length >= 2 ? w[0][0] + w[1][0] : (w[0] || "").slice(0, 2)).toUpperCase();
     };
-    winnersGrid.innerHTML = WINNERS_2027.map(([cat, name], i) => `
+    winnersGrid.innerHTML = WINNERS_2027.map(([cat, name, second, third], i) => {
+      const podium = (second || third) ? `
+        <div class="bsa-winner-card__podium">
+          ${second ? `<div class="bsa-winner-card__place"><span class="bsa-winner-card__pos">2.º</span><span class="bsa-winner-card__pname">${second}</span></div>` : ""}
+          ${third ? `<div class="bsa-winner-card__place"><span class="bsa-winner-card__pos">3.º</span><span class="bsa-winner-card__pname">${third}</span></div>` : ""}
+        </div>` : "";
+      return `
       <article class="bsa-winner-card" data-reveal data-reveal-delay="${(i % 4) + 1}">
         <span class="bsa-winner-card__cat">${cat}</span>
         <div class="bsa-winner-card__logo" aria-hidden="true"><span>${initials(name)}</span></div>
         <h3 class="bsa-winner-card__name">${name}</h3>
-        <span class="bsa-winner-card__badge">${trophy} Vencedor · 2027</span>
-      </article>`).join("");
+        <span class="bsa-winner-card__badge">${trophy} Vencedor · 2027</span>${podium}
+      </article>`;
+    }).join("");
     observeReveals();
   }
 
