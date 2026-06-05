@@ -17,17 +17,29 @@
   <div class="bsa-container bsa-header__inner">
     <a class="bsa-logo" href="index.html" aria-label="Bikes Summit Awards — início"><img src="assets/img/logo-light.png" alt="Bikes Summit Awards" /></a>
     <nav class="bsa-nav" aria-label="Navegação principal">
-      <a class="bsa-nav__link" href="como-funciona.html">Como Funciona</a>
-      <a class="bsa-nav__link" href="categorias.html">Categorias</a>
+      <div class="bsa-nav__item bsa-nav__item--sub">
+        <a class="bsa-nav__link" href="sobre.html">Sobre Nós <span class="bsa-nav__caret" aria-hidden="true">▾</span></a>
+        <div class="bsa-nav__sub">
+          <a href="como-funciona.html">Como Funciona</a>
+          <a href="regulamento.html">Regulamento</a>
+        </div>
+      </div>
+      <div class="bsa-nav__item bsa-nav__item--sub">
+        <a class="bsa-nav__link" href="categorias.html">Categorias <span class="bsa-nav__caret" aria-hidden="true">▾</span></a>
+        <div class="bsa-nav__sub">
+          <a href="juri.html">Júri</a>
+        </div>
+      </div>
+      <div class="bsa-nav__item bsa-nav__item--sub">
+        <a class="bsa-nav__link" href="galeria-2027.html">Galeria de Honra <span class="bsa-nav__caret" aria-hidden="true">▾</span></a>
+        <div class="bsa-nav__sub">
+          <a href="galeria-2027.html">Vencedores 2027</a>
+        </div>
+      </div>
       <a class="bsa-nav__link" href="patrocinadores.html">Patrocinadores</a>
       <a class="bsa-nav__link is-active" href="contactos.html">Contactos</a>
     </nav>
     <div class="bsa-header__cta">
-      <div class="bsa-social-row bsa-social-row--header" aria-label="Redes sociais">
-        <a class="bsa-social bsa-social--sm" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-        <a class="bsa-social bsa-social--sm" href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a class="bsa-social bsa-social--sm" href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-      </div>
       <a class="bsa-btn bsa-btn--ghost bsa-btn--sm" href="bilhetes.html">Bilhetes</a>
       <a class="bsa-btn bsa-btn--gold bsa-btn--sm" href="inscricoes.html">Inscrever <span class="bsa-arrow" aria-hidden="true">→</span></a>
       <button class="bsa-burger" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -48,32 +60,17 @@
   </div>
 </section>
 
-<!-- [ELEMENTOR] SECÇÃO: CONTACTOS -->
-<section class="bsa-section" style="padding-top:clamp(1rem,3vw,2rem)">
-  <div class="bsa-container bsa-contact-grid">
-    <div data-reveal>
-      <span class="bsa-eyebrow">Formas de contacto</span>
-      <h2 class="bsa-h2" style="margin:1rem 0 1.2rem">Estamos a um<br />clique de distância.</h2>
-      <p class="bsa-lead">Escolha o canal que preferir. Respondemos o mais breve possível.</p>
-
-      <div class="bsa-contact-list">
-        <a class="bsa-contact-item" href="mailto:ola@bikessummitawards.com">
-          <span class="bsa-contact-item__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
-          <span><span class="k">Email</span><span class="v">ola@bikessummitawards.com</span></span>
-        </a>
-        <a class="bsa-contact-item" href="tel:+351000000000">
-          <span class="bsa-contact-item__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span>
-          <span><span class="k">Telefone</span><span class="v">+351 000 000 000</span></span>
-        </a>
-      </div>
-    </div>
-
+<!-- [ELEMENTOR] SECÇÃO: CONTACTOS (apenas formulário) -->
+<section class="bsa-section" style="padding-top:clamp(2.5rem,6vw,4.5rem)">
+  <div class="bsa-container" style="max-width:820px">
     <!-- [ELEMENTOR] Form widget (protótipo, sem backend) -->
-    <div class="bsa-form-card" data-reveal data-reveal-delay="1">
+    <div class="bsa-form-card" data-reveal>
       <h3 class="bsa-h3" style="margin-bottom:1.4rem">Envie-nos uma mensagem</h3>
       <form class="bsa-form" data-prototype>
-        <div class="bsa-field"><label class="bsa-label" for="c-nome">Nome <span class="req">*</span></label><input class="bsa-input" id="c-nome" name="nome" type="text" placeholder="O seu nome" required /></div>
-        <div class="bsa-field"><label class="bsa-label" for="c-email">Email <span class="req">*</span></label><input class="bsa-input" id="c-email" name="email" type="email" placeholder="email@empresa.com" required /></div>
+        <div class="bsa-form-grid">
+          <div class="bsa-field"><label class="bsa-label" for="c-nome">Nome <span class="req">*</span></label><input class="bsa-input" id="c-nome" name="nome" type="text" placeholder="O seu nome" required /></div>
+          <div class="bsa-field"><label class="bsa-label" for="c-email">Email <span class="req">*</span></label><input class="bsa-input" id="c-email" name="email" type="email" placeholder="email@empresa.com" required /></div>
+        </div>
         <div class="bsa-field"><label class="bsa-label" for="c-assunto">Assunto</label><select class="bsa-select" id="c-assunto" name="assunto"><option>Inscrições</option><option>Patrocínios</option><option>Bilhetes</option><option>Imprensa</option><option>Outro</option></select></div>
         <div class="bsa-field"><label class="bsa-label" for="c-msg">Mensagem <span class="req">*</span></label><textarea class="bsa-textarea" id="c-msg" name="mensagem" placeholder="Como podemos ajudar?" required></textarea></div>
         <button class="bsa-btn bsa-btn--gold bsa-btn--block" type="submit">Enviar mensagem <span class="bsa-arrow" aria-hidden="true">→</span></button>
@@ -97,11 +94,11 @@
           <a class="bsa-social" href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
         </div>
       </div>
-      <div class="bsa-footer__col"><h4>Explorar</h4><a href="como-funciona.html">Como Funciona</a><a href="categorias.html">Categorias</a><a href="patrocinadores.html">Patrocinadores</a><a href="contactos.html">Contactos</a></div>
+      <div class="bsa-footer__col"><h4>Explorar</h4><a href="sobre.html">Sobre Nós</a><a href="como-funciona.html">Como Funciona</a><a href="regulamento.html">Regulamento</a><a href="categorias.html">Categorias</a><a href="juri.html">Júri</a><a href="galeria-2027.html">Galeria de Honra</a><a href="patrocinadores.html">Patrocinadores</a><a href="contactos.html">Contactos</a></div>
       <div class="bsa-footer__col"><h4>Participar</h4><a href="inscricoes.html">Inscrições</a><a href="bilhetes.html">Bilhetes</a><a href="patrocinadores.html">Patrocínios</a><a href="contactos.html">Imprensa</a></div>
       <div class="bsa-footer__col"><h4>Newsletter</h4><p style="font-size:.9rem">Receba novidades sobre a 1ª edição.</p><form class="bsa-newsletter" data-prototype><input class="bsa-input" type="email" placeholder="O seu email" required aria-label="Email" /><button class="bsa-btn bsa-btn--gold bsa-btn--sm" type="submit" aria-label="Subscrever">→</button></form></div>
     </div>
-    <div class="bsa-footer__bottom"><p>© <span data-year>2027</span> Bikes Summit Awards</p><p>Privacidade · Termos</p></div>
+    <div class="bsa-footer__bottom"><p>©Bikes Summit Awards</p><p>Privacidade · Termos</p></div>
   </div>
 </footer>
 

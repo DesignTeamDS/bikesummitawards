@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Categorias — Bikes Summit Awards | 17 Prémios</title>
-  <meta name="description" content="As 17 categorias dos Bikes Summit Awards. Critérios, requisitos e método de votação de cada prémio da indústria do ciclismo." />
+  <title>Júri — Bikes Summit Awards | 1ª Edição</title>
+  <meta name="description" content="Conheça o painel de jurados dos Bikes Summit Awards — profissionais de referência da indústria do ciclismo que decidem os vencedores." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -54,32 +54,97 @@
   <div class="bsa-mesh" aria-hidden="true"></div>
   <div class="bsa-iso" aria-hidden="true"></div>
   <div class="bsa-container" style="position:relative;z-index:2">
-    <nav class="bsa-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Início</a> <span aria-hidden="true">/</span> Categorias</nav>
-    <h1 class="bsa-display" style="font-size:clamp(2.4rem,6vw,4.6rem);margin:1.2rem 0 1.2rem">17 prémios.<br />Uma <span class="bsa-shine">indústria.</span></h1>
-    <p class="bsa-lead">De marcas e distribuidores a heróis anónimos e media — cada categoria reconhece a excelência numa frente diferente do ciclismo. Clique para ver critérios, requisitos e método de votação.</p>
+    <nav class="bsa-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Início</a> <span aria-hidden="true">/</span> <a href="categorias.html">Categorias</a> <span aria-hidden="true">/</span> Júri</nav>
+    <h1 class="bsa-display" style="font-size:clamp(2.4rem,6vw,4.6rem);margin:1.2rem 0 1.2rem">Quem decide a<br /><span class="bsa-shine">excelência.</span></h1>
+    <p class="bsa-lead">O painel de jurados reúne profissionais de referência da indústria do ciclismo — retalhistas, distribuidores, media e especialistas — que avaliam as candidaturas com rigor e imparcialidade.</p>
   </div>
 </section>
 
-<!-- [ELEMENTOR] SECÇÃO: GRID DE CATEGORIAS (Loop Grid + Popup) -->
+<!-- [ELEMENTOR] SECÇÃO: JÚRI (Loop Grid de membros) -->
 <section class="bsa-section" style="padding-top:clamp(1rem,3vw,2rem)">
   <div class="bsa-container">
-    <div class="bsa-cat-head">
-      <div class="bsa-section__head" style="margin-bottom:0" data-reveal>
-        <span class="bsa-eyebrow">Filtrar por método de votação</span>
-      </div>
-      <div class="bsa-filters" data-reveal>
-        <button class="bsa-chip is-active" data-filter="all">Todas</button>
-        <button class="bsa-chip" data-filter="panel">Painel de Jurados</button>
-        <button class="bsa-chip" data-filter="public">Voto Público</button>
-        <button class="bsa-chip" data-filter="team">Equipa BSA</button>
-      </div>
+    <div class="bsa-section__head" data-reveal>
+      <span class="bsa-eyebrow">O Painel</span>
+      <h2 class="bsa-h2" style="margin-top:1rem">Os jurados da 1ª edição.</h2>
     </div>
 
-    <div class="bsa-cat-grid" id="bsa-cat-grid">
-      <!-- cartões injetados por main.js -->
+    <div class="bsa-juri-grid">
+
+      <article class="bsa-juri-card" data-reveal data-reveal-delay="1">
+        <div class="bsa-juri-card__photo"><img src="assets/img/juri/juri-1.jpg" alt="Ricardo Fonseca" loading="lazy" /></div>
+        <div class="bsa-juri-card__body">
+          <h3 class="bsa-juri-card__name">Ricardo Fonseca</h3>
+          <p class="bsa-juri-card__role">Diretor Editorial</p>
+          <p class="bsa-juri-card__company">Ciclismo Hoje</p>
+        </div>
+      </article>
+
+      <article class="bsa-juri-card" data-reveal data-reveal-delay="2">
+        <div class="bsa-juri-card__photo"><img src="assets/img/juri/juri-2.jpg" alt="Marta Oliveira" loading="lazy" /></div>
+        <div class="bsa-juri-card__body">
+          <h3 class="bsa-juri-card__name">Marta Oliveira</h3>
+          <p class="bsa-juri-card__role">CEO</p>
+          <p class="bsa-juri-card__company">VeloTech Distribuição</p>
+        </div>
+      </article>
+
+      <article class="bsa-juri-card" data-reveal data-reveal-delay="3">
+        <div class="bsa-juri-card__photo"><img src="assets/img/juri/juri-3.jpg" alt="André Santos" loading="lazy" /></div>
+        <div class="bsa-juri-card__body">
+          <h3 class="bsa-juri-card__name">André Santos</h3>
+          <p class="bsa-juri-card__role">Mecânico-Chefe</p>
+          <p class="bsa-juri-card__company">Oficina Roda Livre</p>
+        </div>
+      </article>
+
+      <article class="bsa-juri-card" data-reveal data-reveal-delay="4">
+        <div class="bsa-juri-card__photo"><img src="assets/img/juri/juri-4.jpg" alt="Sofia Almeida" loading="lazy" /></div>
+        <div class="bsa-juri-card__body">
+          <h3 class="bsa-juri-card__name">Sofia Almeida</h3>
+          <p class="bsa-juri-card__role">Diretora de Marketing</p>
+          <p class="bsa-juri-card__company">BikeParts PT</p>
+        </div>
+      </article>
+
+      <article class="bsa-juri-card" data-reveal data-reveal-delay="1">
+        <div class="bsa-juri-card__photo"><img src="assets/img/juri/juri-5.jpg" alt="João Pereira" loading="lazy" /></div>
+        <div class="bsa-juri-card__body">
+          <h3 class="bsa-juri-card__name">João Pereira</h3>
+          <p class="bsa-juri-card__role">Fundador</p>
+          <p class="bsa-juri-card__company">Pedal Urbano</p>
+        </div>
+      </article>
+
+      <article class="bsa-juri-card" data-reveal data-reveal-delay="2">
+        <div class="bsa-juri-card__photo"><img src="assets/img/juri/juri-6.jpg" alt="Inês Carvalho" loading="lazy" /></div>
+        <div class="bsa-juri-card__body">
+          <h3 class="bsa-juri-card__name">Inês Carvalho</h3>
+          <p class="bsa-juri-card__role">Embaixadora</p>
+          <p class="bsa-juri-card__company">Mulheres em Movimento</p>
+        </div>
+      </article>
+
+      <article class="bsa-juri-card" data-reveal data-reveal-delay="3">
+        <div class="bsa-juri-card__photo"><img src="assets/img/juri/juri-7.jpg" alt="Tiago Martins" loading="lazy" /></div>
+        <div class="bsa-juri-card__body">
+          <h3 class="bsa-juri-card__name">Tiago Martins</h3>
+          <p class="bsa-juri-card__role">Diretor Técnico</p>
+          <p class="bsa-juri-card__company">Federação de Ciclismo</p>
+        </div>
+      </article>
+
+      <article class="bsa-juri-card" data-reveal data-reveal-delay="4">
+        <div class="bsa-juri-card__photo"><img src="assets/img/juri/juri-8.jpg" alt="Beatriz Nunes" loading="lazy" /></div>
+        <div class="bsa-juri-card__body">
+          <h3 class="bsa-juri-card__name">Beatriz Nunes</h3>
+          <p class="bsa-juri-card__role">Jornalista</p>
+          <p class="bsa-juri-card__company">Revista Duas Rodas</p>
+        </div>
+      </article>
+
     </div>
 
-    <p class="bsa-hint" style="text-align:center;margin-top:2rem" data-reveal>Clique em qualquer categoria para ver os critérios completos, requisitos e demonstração de excelência.</p>
+    <p class="bsa-hint" style="text-align:center;margin-top:2rem" data-reveal>Painel de protótipo — nomes e cargos ilustrativos. A composição final do júri será anunciada oficialmente.</p>
   </div>
 </section>
 
@@ -88,12 +153,12 @@
   <div class="bsa-container">
     <div class="bsa-cta-banner" data-reveal>
       <div class="bsa-mesh" aria-hidden="true"></div>
-      <span class="bsa-eyebrow is-center" style="justify-content:center">Encontrou a sua categoria?</span>
+      <span class="bsa-eyebrow is-center" style="justify-content:center">Quer fazer parte?</span>
       <h2 class="bsa-h2">Coloque o seu nome em jogo.</h2>
-      <p class="bsa-lead" style="margin:0 auto 2rem">Uma candidatura por categoria. O processo é simples e leva poucos minutos.</p>
+      <p class="bsa-lead" style="margin:0 auto 2rem">Conheça as 17 categorias e submeta a sua candidatura à avaliação do nosso painel.</p>
       <div class="bsa-flex" style="gap:.9rem;justify-content:center;flex-wrap:wrap">
-        <a class="bsa-btn bsa-btn--gold" href="inscricoes.html">Submeter inscrição <span class="bsa-arrow" aria-hidden="true">→</span></a>
-        <a class="bsa-btn bsa-btn--ghost" href="como-funciona.html">Como funciona</a>
+        <a class="bsa-btn bsa-btn--gold" href="categorias.html">Ver categorias <span class="bsa-arrow" aria-hidden="true">→</span></a>
+        <a class="bsa-btn bsa-btn--ghost" href="inscricoes.html">Submeter inscrição</a>
       </div>
     </div>
   </div>
@@ -121,15 +186,6 @@
     <div class="bsa-footer__bottom"><p>©Bikes Summit Awards</p><p>Privacidade · Termos</p></div>
   </div>
 </footer>
-
-<!-- [ELEMENTOR] POPUP: detalhe da categoria (modal centrado) -->
-<div class="bsa-modal" id="bsa-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="bsa-modal-title">
-  <div class="bsa-modal__overlay" data-close></div>
-  <div class="bsa-modal__panel">
-    <button class="bsa-modal__close" data-close aria-label="Fechar"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-    <div id="bsa-modal-body"></div>
-  </div>
-</div>
 
 <script src="assets/js/main.js"></script>
 </body>

@@ -15,7 +15,7 @@
 <body>
 
 <!-- ============================================================
-     [ELEMENTOR] HEADER (Theme Builder → Header global))
+     [ELEMENTOR] HEADER (Theme Builder → Header global)
      ============================================================ -->
 <header class="bsa-header">
   <div class="bsa-container bsa-header__inner">
@@ -23,17 +23,29 @@
       <img src="assets/img/logo-light.png" alt="Bikes Summit Awards" />
     </a>
     <nav class="bsa-nav" aria-label="Navegação principal">
-      <a class="bsa-nav__link" href="como-funciona.html">Como Funciona</a>
-      <a class="bsa-nav__link" href="categorias.html">Categorias</a>
+      <div class="bsa-nav__item bsa-nav__item--sub">
+        <a class="bsa-nav__link" href="sobre.html">Sobre Nós <span class="bsa-nav__caret" aria-hidden="true">▾</span></a>
+        <div class="bsa-nav__sub">
+          <a href="como-funciona.html">Como Funciona</a>
+          <a href="regulamento.html">Regulamento</a>
+        </div>
+      </div>
+      <div class="bsa-nav__item bsa-nav__item--sub">
+        <a class="bsa-nav__link" href="categorias.html">Categorias <span class="bsa-nav__caret" aria-hidden="true">▾</span></a>
+        <div class="bsa-nav__sub">
+          <a href="juri.html">Júri</a>
+        </div>
+      </div>
+      <div class="bsa-nav__item bsa-nav__item--sub">
+        <a class="bsa-nav__link" href="galeria-2027.html">Galeria de Honra <span class="bsa-nav__caret" aria-hidden="true">▾</span></a>
+        <div class="bsa-nav__sub">
+          <a href="galeria-2027.html">Vencedores 2027</a>
+        </div>
+      </div>
       <a class="bsa-nav__link" href="patrocinadores.html">Patrocinadores</a>
       <a class="bsa-nav__link" href="contactos.html">Contactos</a>
     </nav>
     <div class="bsa-header__cta">
-      <div class="bsa-social-row bsa-social-row--header" aria-label="Redes sociais">
-        <a class="bsa-social bsa-social--sm" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-        <a class="bsa-social bsa-social--sm" href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a class="bsa-social bsa-social--sm" href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-      </div>
       <a class="bsa-btn bsa-btn--ghost bsa-btn--sm" href="bilhetes.html">Bilhetes</a>
       <a class="bsa-btn bsa-btn--gold bsa-btn--sm" href="inscricoes.html">Inscrever <span class="bsa-arrow" aria-hidden="true">→</span></a>
       <button class="bsa-burger" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -51,7 +63,7 @@
   <div class="bsa-iso" aria-hidden="true"></div>
   <div class="bsa-container bsa-hero__grid">
     <div class="bsa-hero__content">
-      <span class="bsa-eyebrow">1ª Edição &nbsp;•&nbsp; Edição 2026</span>
+      <span class="bsa-eyebrow">1ª Edição &nbsp;•&nbsp; Edição 2027</span>
       <h1 class="bsa-display bsa-hero__title">
         <span class="line"><span>Os prémios que</span></span>
         <span class="line"><span>definem a <span class="bsa-shine">indústria</span></span></span>
@@ -68,7 +80,7 @@
       <div class="bsa-hero__meta">
         <div class="item"><span class="k">Categorias</span><span class="v">17 Prémios</span></div>
         <div class="item"><span class="k">Votação</span><span class="v">Júri + Público</span></div>
-        <div class="item"><span class="k">Cerimónia</span><span class="v">Edição 2026</span></div>
+        <div class="item"><span class="k">Cerimónia</span><span class="v">Edição 2027</span></div>
       </div>
     </div>
     <div class="bsa-hero__visual">
@@ -135,14 +147,55 @@
       <h2 class="bsa-h2">Lado a lado com quem<br />acredita no ciclismo.</h2>
       <p class="bsa-lead" style="margin-inline:auto">Um espaço nobre, reservado às marcas e organizações que tornam esta primeira edição possível.</p>
     </div>
-    <div class="bsa-spon-grid bsa-spon-grid--rest" data-reveal style="max-width:900px;margin-inline:auto">
-      <div class="bsa-spon">Marca 01</div>
-      <div class="bsa-spon">Marca 02</div>
-      <div class="bsa-spon">Marca 03</div>
-      <div class="bsa-spon">Marca 04</div>
-      <div class="bsa-spon">Marca 05</div>
+    <!-- Hierarquia de marcas (simulação — logótipos a confirmar) -->
+    <div class="bsa-spon-tier" data-reveal>
+      <p class="bsa-spon-tier__label">Organização</p>
+      <div class="bsa-spon-grid bsa-spon-grid--solo">
+        <div class="bsa-spon bsa-spon--main"><img src="assets/img/sponsors/velo-connect.png" alt="Velo Connect" loading="lazy" /></div>
+      </div>
     </div>
-    <div class="bsa-center" style="margin-top:2.6rem;gap:.9rem;flex-wrap:wrap" data-reveal>
+    <div class="bsa-spon-tier" data-reveal>
+      <p class="bsa-spon-tier__label">Sponsor Principal</p>
+      <div class="bsa-spon-grid bsa-spon-grid--solo">
+        <div class="bsa-spon bsa-spon--main bsa-spon--principal">Cofidis</div>
+      </div>
+    </div>
+    <div class="bsa-spon-tier" data-reveal>
+      <p class="bsa-spon-tier__label">Apoios Institucionais</p>
+      <div class="bsa-spon-grid bsa-spon-grid--row4">
+        <div class="bsa-spon"><img src="assets/img/sponsors/abp.png" alt="Ass. Bike Pulse" loading="lazy" /></div>
+        <div class="bsa-spon"><img src="assets/img/sponsors/cm-matosinhos.png" alt="CM Matosinhos" loading="lazy" /></div>
+        <div class="bsa-spon">Fed. Port. Ciclismo</div>
+        <div class="bsa-spon">Fed. Port. Cicloturismo</div>
+      </div>
+    </div>
+    <div class="bsa-spon-tier" data-reveal>
+      <p class="bsa-spon-tier__label">Sponsors</p>
+      <div class="bsa-spon-grid bsa-spon-grid--row4">
+        <div class="bsa-spon"><img src="assets/img/sponsors/bikes-online.png" alt="Bikes Online" loading="lazy" /></div>
+        <div class="bsa-spon">Torrie</div>
+        <div class="bsa-spon">Efapel</div>
+        <div class="bsa-spon">Grafivinil</div>
+      </div>
+    </div>
+    <div class="bsa-spon-tier" data-reveal>
+      <p class="bsa-spon-tier__label">Hotel Oficial</p>
+      <div class="bsa-spon-grid bsa-spon-grid--solo is-sm">
+        <div class="bsa-spon">Sea &amp; Day Hotel</div>
+      </div>
+    </div>
+    <div class="bsa-spon-tier" data-reveal>
+      <p class="bsa-spon-tier__label">Support Team</p>
+      <div class="bsa-spon-grid bsa-spon-grid--row6">
+        <div class="bsa-spon bsa-spon--sm"><img src="assets/img/sponsors/digital-spirit.png" alt="Digital Spirit" loading="lazy" /></div>
+        <div class="bsa-spon bsa-spon--sm">Audiovisuais</div>
+        <div class="bsa-spon bsa-spon--sm">Event Manager Team</div>
+        <div class="bsa-spon bsa-spon--sm">CISION</div>
+        <div class="bsa-spon bsa-spon--sm">Nuno Fernandes Fotografia</div>
+        <div class="bsa-spon bsa-spon--sm">XPTO Catering</div>
+      </div>
+    </div>
+    <div class="bsa-center" style="margin-top:3rem;gap:.9rem;flex-wrap:wrap" data-reveal>
       <a class="bsa-btn bsa-btn--gold" href="patrocinadores.html">Ver patrocinadores <span class="bsa-arrow" aria-hidden="true">→</span></a>
       <a class="bsa-btn bsa-btn--ghost" href="contactos.html">Tornar-me patrocinador</a>
     </div>
@@ -189,8 +242,12 @@
       </div>
       <div class="bsa-footer__col">
         <h4>Explorar</h4>
+        <a href="sobre.html">Sobre Nós</a>
         <a href="como-funciona.html">Como Funciona</a>
+        <a href="regulamento.html">Regulamento</a>
         <a href="categorias.html">Categorias</a>
+        <a href="juri.html">Júri</a>
+        <a href="galeria-2027.html">Galeria de Honra</a>
         <a href="patrocinadores.html">Patrocinadores</a>
         <a href="contactos.html">Contactos</a>
       </div>
@@ -211,8 +268,8 @@
       </div>
     </div>
     <div class="bsa-footer__bottom">
-      <p>© <span data-year>2026</span> Bikes Summit Awards · 1ª Edição</p>
-      <p>Protótipo · Privacidade · Termos</p>
+      <p>©Bikes Summit Awards</p>
+      <p>Privacidade · Termos</p>
     </div>
   </div>
 </footer>
