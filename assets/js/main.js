@@ -10,7 +10,7 @@
   "use strict";
 
   /* ---------------------------------------------------------
-     DADOS — 17 categorias (nomes traduzidos PT-PT)
+     DADOS — 18 categorias (nomes traduzidos PT-PT)
      badge: 'panel' (Painel de Jurados) | 'public' (Voto Público) | 'team' (Equipa BSA)
      product: true => mostra campo "Produto" no formulário de inscrição
   --------------------------------------------------------- */
@@ -380,6 +380,28 @@
         "Forte sentido de comunidade.",
         "Defesa de diversidade, inclusão e sustentabilidade."
       ]
+    },
+    {
+      n: "18", name: "Melhor Empresa de Cicloturismo", badge: "panel",
+      nominate: "Empresas de cicloturismo — operadores de viagens, agências e organizadores de experiências de bicicleta — que ofereçam percursos, estadias ou pacotes de qualidade, promovendo o turismo sobre duas rodas.",
+      method: "Vencedor decidido por painel de jurados.",
+      criteria: [
+        ["Qualidade da experiência", "excelência dos percursos, alojamento, apoio e organização ao longo de toda a viagem."],
+        ["Inovação e singularidade", "propostas distintivas, roteiros originais e serviços que diferenciam a empresa."],
+        ["Impacto e sustentabilidade", "contributo para o turismo local, práticas responsáveis e valorização do território."],
+        ["Satisfação e reputação", "avaliações dos clientes, fidelização e reconhecimento no setor."]
+      ],
+      requirements: [
+        "Declaração de apoio (máx. 300 palavras).",
+        "Descrição da oferta de cicloturismo e públicos-alvo.",
+        "Roteiros, pacotes ou experiências de destaque no último ano.",
+        "Provas de satisfação dos clientes e impacto no turismo local."
+      ],
+      excellence: [
+        "Parcerias com IBDs, marcas e comunidades locais.",
+        "Compromisso com a sustentabilidade e o turismo responsável.",
+        "Acessibilidade e inclusão nas experiências oferecidas."
+      ]
     }
   ];
 
@@ -457,7 +479,8 @@
     ["Evento do Ano", "Granfondo Atlântico", "Volta Urbana", "MTB Festival"],
     ["Mecânico do Ano", "Paulo Trindade"],
     ["Herói Anónimo do Ano", "Carla Sousa"],
-    ["Media de Ciclismo do Ano", "Pedal Magazine", "Ciclo Podcast", "Duas Rodas TV"]
+    ["Media de Ciclismo do Ano", "Pedal Magazine", "Ciclo Podcast", "Duas Rodas TV"],
+    ["Melhor Empresa de Cicloturismo", "Rota Vélo Tours", "Ibéria Bike Travel", "Trilhos & Pedais"]
   ];
   const winnersGrid = $("#bsa-winners-grid");
   if (winnersGrid) {
@@ -524,7 +547,7 @@
         return `<li>${it}</li>`;
       }).join("");
       panel.innerHTML = `
-        <span class="bsa-modal__num">CATEGORIA ${c.n} / 17</span>
+        <span class="bsa-modal__num">CATEGORIA ${c.n} / 18</span>
         <h2 class="bsa-modal__title" id="bsa-modal-title">${c.name}</h2>
         <span class="bsa-badge bsa-badge--${c.badge}">${BADGE_LABEL[c.badge]}</span>
         <div class="bsa-modal__block">
@@ -611,6 +634,155 @@
       cd.innerHTML = cell(days, "Dias") + cell(h, "Horas") + cell(m, "Min") + cell(s, "Seg");
     };
     tick(); setInterval(tick, 1000);
+  }
+
+  /* ---------------------------------------------------------
+     VOTAÇÃO — página de Voto Público (grid + modal multi-passo)
+     Fluxo: escolher finalista → validar identidade → voto confirmado.
+     NOTA HANDOFF: em produção, os finalistas viriam do CPT/ACF de cada
+     categoria e a validação seria login real (OAuth/email OTP).
+  --------------------------------------------------------- */
+  const voteGrid = $("#bsa-vote-grid");
+  if (voteGrid) {
+    // 5 finalistas por categoria de Voto Público (nº da categoria → nomes).
+    // Marcas/pessoas ilustrativas (protótipo).
+    const FINALISTS = {
+      "07": ["Bike Garage Lisboa", "Loja do Ciclista", "Oficina Roda Norte", "Pedal & Companhia", "Ciclo Ponto Porto"],
+      "13": ["Helena Marques", "Sofia Ramalho", "Beatriz Antunes", "Marta Quintela", "Inês Vasconcelos"],
+      "14": ["Granfondo Atlântico", "Volta Urbana", "MTB Festival Gerês", "Bike Expo Porto", "Maratona do Douro"],
+      "15": ["Paulo Trindade", "Rui Carvalho", "André Lopes", "Miguel Faria", "Tiago Sousa"],
+      "16": ["Carla Sousa", "João Mendes", "Ana Pires", "Ricardo Brito", "Filipa Nunes"],
+      "17": ["Pedal Magazine", "Ciclo Podcast", "Duas Rodas TV", "Bike Channel PT", "Revista Estrada"]
+    };
+    const vInitials = (n) => {
+      const w = n.replace(/[^\p{L}\s]/gu, " ").split(/\s+/).filter(Boolean);
+      return (w.length >= 2 ? w[0][0] + w[1][0] : (w[0] || "").slice(0, 2)).toUpperCase();
+    };
+
+    const publicCats = BSA_CATEGORIES.filter(c => c.badge === "public");
+    voteGrid.innerHTML = publicCats.map(c => `
+      <button class="bsa-cat-card" data-cat="${c.n}" type="button" data-reveal aria-haspopup="dialog">
+        <div class="bsa-cat-card__top">
+          <span class="bsa-cat-card__num">${c.n}</span>
+          <span class="bsa-badge bsa-badge--public">${BADGE_LABEL[c.badge]}</span>
+        </div>
+        <h3 class="bsa-cat-card__title">${c.name}</h3>
+        <p class="bsa-cat-card__excerpt">${c.nominate.length > 110 ? c.nominate.slice(0, 107).trim() + "…" : c.nominate}</p>
+        <div class="bsa-cat-card__foot">
+          <span class="bsa-cat-card__more">Votar agora <span aria-hidden="true">→</span></span>
+        </div>
+      </button>`).join("");
+    observeReveals();
+
+    const modal = $("#bsa-vote-modal");
+    const body = $("#bsa-vote-body");
+    let curCat = null, picked = null, lastFocus = null;
+
+    const checkIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+    const arrow = '<span class="bsa-arrow" aria-hidden="true">→</span>';
+    const gIco = '<svg viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.7-2.4 3.6v3h3.9c2.3-2.1 3.5-5.2 3.5-8.8z"/><path fill="#34A853" d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-3.9-3c-1.1.7-2.5 1.2-4 1.2-3.1 0-5.7-2.1-6.6-4.9H1.4v3.1C3.4 21.3 7.4 24 12 24z"/><path fill="#FBBC05" d="M5.4 14.4c-.2-.7-.4-1.4-.4-2.4s.1-1.7.4-2.4V6.5H1.4C.5 8.2 0 10 0 12s.5 3.8 1.4 5.5l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.8 0 3.3.6 4.6 1.8l3.4-3.4C17.9 1.2 15.2 0 12 0 7.4 0 3.4 2.7 1.4 6.5l4 3.1C6.3 6.8 8.9 4.8 12 4.8z"/></svg>';
+    const msIco = '<svg viewBox="0 0 24 24"><rect x="2" y="2" width="9" height="9" fill="#f25022"/><rect x="13" y="2" width="9" height="9" fill="#7fba00"/><rect x="2" y="13" width="9" height="9" fill="#00a4ef"/><rect x="13" y="13" width="9" height="9" fill="#ffb900"/></svg>';
+    const apIco = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.8c0-2.2 1.8-3.2 1.9-3.3-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.6.8-3.3.8-.7 0-1.7-.8-2.8-.8-1.4 0-2.8.8-3.5 2.1-1.5 2.6-.4 6.5 1.1 8.6.7 1 1.6 2.2 2.7 2.1 1.1 0 1.5-.7 2.8-.7s1.7.7 2.8.7c1.2 0 1.9-1 2.6-2 .8-1.2 1.2-2.3 1.2-2.4-.1 0-2.3-.9-2.3-3.5zm-2.2-6.4c.6-.7 1-1.7.9-2.7-.9 0-1.9.6-2.5 1.3-.5.6-1 1.6-.9 2.6 1 .1 1.9-.5 2.5-1.2z"/></svg>';
+
+    // PASSO 1 — lista de finalistas
+    const renderPick = () => {
+      const finalists = FINALISTS[curCat.n] || [];
+      const opts = finalists.map((name, i) => `
+        <button class="bsa-vote-opt${picked === i ? " is-selected" : ""}" data-pick="${i}" type="button">
+          <span class="bsa-vote-opt__logo" aria-hidden="true"><span>${vInitials(name)}</span></span>
+          <span class="bsa-vote-opt__name">${name}</span>
+          <span class="bsa-vote-opt__radio" aria-hidden="true"></span>
+        </button>`).join("");
+      body.innerHTML = `
+        <span class="bsa-modal__num">VOTO PÚBLICO · CATEGORIA ${curCat.n}</span>
+        <h2 class="bsa-modal__title" id="bsa-vote-title">${curCat.name}</h2>
+        <p class="bsa-vote-sub">Escolha o seu favorito entre os 5 finalistas. Só pode votar uma vez nesta categoria.</p>
+        <div class="bsa-vote-list">${opts}</div>
+        <div class="bsa-modal__cta">
+          <button class="bsa-btn bsa-btn--gold bsa-btn--block" data-step="validate"${picked === null ? " disabled" : ""}>Continuar ${arrow}</button>
+        </div>`;
+    };
+
+    // PASSO 2 — validar identidade (referência: ecrã de login)
+    const renderValidate = () => {
+      const name = (FINALISTS[curCat.n] || [])[picked] || "";
+      body.innerHTML = `
+        <button class="bsa-vote-back" data-step="pick" type="button">← Voltar aos finalistas</button>
+        <div class="bsa-vote-validate">
+          <span class="bsa-modal__num" style="text-align:center;display:block">CONFIRMAR VOTO</span>
+          <h2 class="bsa-modal__title" id="bsa-vote-title" style="text-align:center;margin-top:.6rem">Valide o seu voto</h2>
+          <p class="bsa-vote-sub" style="text-align:center">Está a votar em <strong class="bsa-gold-text">${name}</strong> para <strong>${curCat.name}</strong>. Valide a sua identidade para garantir um voto por pessoa.</p>
+          <div class="bsa-oauth">
+            <button class="bsa-oauth-btn" data-step="done" type="button">${gIco} Continuar com Google</button>
+            <button class="bsa-oauth-btn" data-step="done" type="button">${msIco} Continuar com Outlook</button>
+            <button class="bsa-oauth-btn" data-step="done" type="button">${apIco} Continuar com Apple</button>
+          </div>
+          <div class="bsa-or"><span>ou com o seu email</span></div>
+          <form class="bsa-vote-email" data-vote-email novalidate>
+            <input class="bsa-input" type="email" required placeholder="O seu email" aria-label="O seu email" />
+            <button class="bsa-btn bsa-btn--gold bsa-btn--block" type="submit">Validar e votar ${arrow}</button>
+          </form>
+          <p class="bsa-vote-terms">Ao votar, concorda com os <a class="bsa-gold-text" href="regulamento.html">termos do prémio</a>.</p>
+        </div>`;
+    };
+
+    // PASSO 3 — voto confirmado
+    const renderDone = () => {
+      const name = (FINALISTS[curCat.n] || [])[picked] || "";
+      body.innerHTML = `
+        <div class="bsa-vote-success">
+          <div class="bsa-vote-success__ico" aria-hidden="true">${checkIcon}</div>
+          <span class="bsa-modal__num">VOTO REGISTADO</span>
+          <h2 class="bsa-modal__title" id="bsa-vote-title" style="margin-top:.6rem">Voto confirmado!</h2>
+          <p class="bsa-vote-sub">Obrigado por participar. O seu voto em <strong class="bsa-gold-text">${name}</strong> para <strong>${curCat.name}</strong> foi registado com sucesso.</p>
+          <div class="bsa-modal__cta">
+            <button class="bsa-btn bsa-btn--solid bsa-btn--block" data-close type="button">Concluir</button>
+          </div>
+        </div>`;
+    };
+
+    const STEPS = { pick: renderPick, validate: renderValidate, done: renderDone };
+    const go = (step) => { (STEPS[step] || renderPick)(); };
+
+    const openModal = (c, trigger) => {
+      curCat = c; picked = null; lastFocus = trigger || null;
+      go("pick");
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      const close = $(".bsa-modal__close", modal); close && close.focus();
+    };
+    const closeModal = () => {
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      lastFocus && lastFocus.focus();
+    };
+
+    voteGrid.addEventListener("click", (e) => {
+      const card = e.target.closest(".bsa-cat-card");
+      if (!card) return;
+      const c = BSA_CATEGORIES.find(x => x.n === card.dataset.cat);
+      c && openModal(c, card);
+    });
+
+    body.addEventListener("click", (e) => {
+      const pick = e.target.closest("[data-pick]");
+      if (pick) { picked = Number(pick.dataset.pick); renderPick(); return; }
+      const stepBtn = e.target.closest("[data-step]");
+      if (stepBtn && !stepBtn.disabled) { go(stepBtn.dataset.step); return; }
+    });
+    body.addEventListener("submit", (e) => {
+      const form = e.target.closest("[data-vote-email]");
+      if (!form) return;
+      e.preventDefault();
+      const inp = $("input", form);
+      if (inp && !inp.value.trim()) { inp.focus(); return; }
+      go("done");
+    });
+
+    modal.addEventListener("click", (e) => { if (e.target.closest("[data-close]")) closeModal(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal(); });
   }
 
   /* ---------------------------------------------------------
