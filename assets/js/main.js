@@ -435,6 +435,46 @@
   }
 
   /* ---------------------------------------------------------
+     GALERIA DE HONRA — vencedores (simulação edição 2027)
+     NOTA: logótipos/marcas e nomes são ilustrativos (protótipo).
+  --------------------------------------------------------- */
+  const WINNERS_2027 = [
+    ["Marca de Bicicletas do Ano", "VeloMax Bikes"],
+    ["Marca de Peças & Acessórios do Ano", "CycloGear"],
+    ["Inovação do Ano", "AeroDrive Systems"],
+    ["Distribuidor de Bicicletas do Ano", "IberBike Distribuição"],
+    ["Distribuidor de Peças & Acessórios do Ano", "ProParts Iberia"],
+    ["Distribuidor Especialista do Ano", "E-Volt Distribuição"],
+    ["Retalhista Independente (IBD) do Ano", "Bike Garage Lisboa"],
+    ["Retalhista Omnicanal do Ano", "CicloStore"],
+    ["Melhores Serviços para o Retalho", "RetailUp Solutions"],
+    ["Retalhista Especialista do Ano", "Gravel & Co."],
+    ["Prémio de Advocacia do Ciclismo", "Movimento +Bici"],
+    ["Campeão da Diversidade", "Rodas para Todos"],
+    ["Mulher do Ano", "Helena Marques"],
+    ["Evento do Ano", "Granfondo Atlântico"],
+    ["Mecânico do Ano", "Paulo Trindade"],
+    ["Herói Anónimo do Ano", "Carla Sousa"],
+    ["Media de Ciclismo do Ano", "Pedal Magazine"]
+  ];
+  const winnersGrid = $("#bsa-winners-grid");
+  if (winnersGrid) {
+    const trophy = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.6V17c0 .5-.4 1-1 1.2C7.8 18.7 7 20.2 7 22"/><path d="M14 14.6V17c0 .5.5 1 1 1.2 1.2.5 2 2 2 3.8"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>';
+    const initials = (n) => {
+      const w = n.replace(/[^\p{L}\s]/gu, " ").split(/\s+/).filter(Boolean);
+      return (w.length >= 2 ? w[0][0] + w[1][0] : (w[0] || "").slice(0, 2)).toUpperCase();
+    };
+    winnersGrid.innerHTML = WINNERS_2027.map(([cat, name], i) => `
+      <article class="bsa-winner-card" data-reveal data-reveal-delay="${(i % 4) + 1}">
+        <span class="bsa-winner-card__cat">${cat}</span>
+        <div class="bsa-winner-card__logo" aria-hidden="true"><span>${initials(name)}</span></div>
+        <h3 class="bsa-winner-card__name">${name}</h3>
+        <span class="bsa-winner-card__badge">${trophy} Vencedor · 2027</span>
+      </article>`).join("");
+    observeReveals();
+  }
+
+  /* ---------------------------------------------------------
      CATEGORIAS — render grid + modal + filtros
   --------------------------------------------------------- */
   const grid = $("#bsa-cat-grid");
@@ -581,7 +621,6 @@
     }
 
     const productField = $("#bsa-product-field");
-    const summaryField = $("#bsa-summary");
     const syncConditional = () => {
       const opt = catSelect.options[catSelect.selectedIndex];
       const isProduct = opt && opt.dataset.product === "true";
@@ -590,9 +629,6 @@
         const inp = $("input", productField);
         if (inp) inp.required = !!isProduct;
       }
-      // preenche dica do resumo com a descrição "a que a categoria se destina"
-      const c = BSA_CATEGORIES.find(x => x.n === catSelect.value);
-      if (summaryField && c) summaryField.placeholder = `Breve resumo sobre: ${c.name} — ${c.nominate.slice(0, 90)}…`;
     };
     catSelect.addEventListener("change", syncConditional);
     syncConditional();
