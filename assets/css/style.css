@@ -35,7 +35,7 @@
   /* Tipografia */
   --bsa-font-display: 'Bricolage Grotesque', 'Archivo', sans-serif;
   --bsa-font-body: 'Archivo', system-ui, sans-serif;
-  --bsa-font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --bsa-font-mono: 'Archivo', system-ui, sans-serif;
 
   /* Espaço / forma */
   --bsa-radius: 14px;
