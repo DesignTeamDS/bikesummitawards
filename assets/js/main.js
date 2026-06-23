@@ -361,7 +361,7 @@
     },
     {
       n: "17", name: "Media de Ciclismo do Ano", badge: "public",
-      nominate: "Qualquer plataforma de media de ciclismo do Reino Unido — publicações, podcasts, revistas, websites, canais de YouTube ou redes sociais — com conteúdo consistente e envolvente.",
+      nominate: "Qualquer plataforma de media de ciclismo de Portugal — publicações, podcasts, revistas, websites, canais de YouTube ou redes sociais — com conteúdo consistente e envolvente.",
       method: "Vencedor decidido por voto público aberto a toda a indústria.",
       criteria: [
         ["Qualidade do conteúdo", "excelência, rigor, originalidade e relevância."],
