@@ -268,10 +268,11 @@ body.bsa-menu-open .bsa-burger span:nth-child(3) { top: 22px; transform: rotate(
 @keyframes bsa-fade { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
 /* Visual do hero — ciclista (plano americano, ancorado ao fundo) */
-.bsa-hero__visual { position: relative; align-self: stretch; min-height: 0; }
-.bsa-hero__glow { position: absolute; left: 40%; top: 42%; transform: translate(-50%, -50%); width: min(28vw, 420px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(201,163,44,0.4), transparent 62%); filter: blur(48px); z-index: 1; pointer-events: none; }
-/* Ciclista ancorado ao fundo da dobra, empurrado para a direita em ecrãs largos (transbordo controlado) para não sobrepor o texto */
-.bsa-hero__cyclist { position: absolute; bottom: 0; right: clamp(-220px, calc((1240px - 100vw) / 2), 0px); z-index: 2; height: min(88vh, 960px); width: auto; max-width: none; object-fit: contain; object-position: bottom right; filter: drop-shadow(0 26px 48px rgba(0,0,0,0.55)); animation: bsa-fade 1.1s var(--bsa-ease) .5s both; }
+.bsa-hero__visual { position: relative; align-self: stretch; min-height: 0; display: flex; align-items: center; justify-content: center; }
+.bsa-hero__glow { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(40vw, 620px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(201,163,44,0.42), transparent 62%); filter: blur(54px); z-index: 1; pointer-events: none; }
+/* Troféu protagonista: grande e centrado verticalmente na zona visual */
+.bsa-hero__trophy { position: relative; z-index: 2; height: min(84vh, 940px); width: auto; max-width: 100%; object-fit: contain; object-position: center; filter: drop-shadow(0 30px 54px rgba(0,0,0,0.55)); animation: bsa-fade-in 1.1s var(--bsa-ease) .5s both; }
+@keyframes bsa-fade-in { from { opacity: 0; } to { opacity: 1; } }
 
 /* tira "marquee" sob o hero */
 .bsa-marquee { position: relative; z-index: 2; border-block: 1px solid var(--bsa-border); overflow: hidden; background: rgba(255,255,255,0.012); }
@@ -657,9 +658,9 @@ body.bsa-menu-open .bsa-burger span:nth-child(3) { top: 22px; transform: rotate(
   .bsa-hero { align-items: center; }
   .bsa-hero__grid { grid-template-columns: 1fr; gap: 0; }
   .bsa-hero__content { align-self: auto; max-width: none; padding-block: 0; }
-  .bsa-hero__visual { order: -1; align-self: center; display: flex; align-items: flex-end; justify-content: center; min-height: 46vh; }
-  .bsa-hero__cyclist { position: relative; left: auto; bottom: auto; height: auto; max-height: 52vh; max-width: 100%; width: auto; margin: 0 auto; object-position: bottom center; }
-  .bsa-hero__glow { left: 50%; right: auto; top: 42%; bottom: auto; transform: translate(-50%, -50%); width: 72vw; }
+  .bsa-hero__visual { order: -1; align-self: center; display: flex; align-items: center; justify-content: center; min-height: 42vh; }
+  .bsa-hero__trophy { position: relative; top: auto; left: auto; transform: none; height: auto; max-height: 46vh; max-width: 100%; width: auto; margin: 0 auto; object-position: center; }
+  .bsa-hero__glow { left: 50%; right: auto; top: 50%; bottom: auto; transform: translate(-50%, -50%); width: 60vw; }
 }
 
 @media (max-width: 1100px) {
