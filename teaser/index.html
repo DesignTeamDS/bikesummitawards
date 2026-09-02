@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bikes Summit Awards — Em breve | Os prémios da indústria do ciclismo</title>
+  <meta name="description" content="Bikes Summit Awards, 1ª Edição. Os prémios que definem a indústria do ciclismo. Inscrições em breve — registe o seu email e seja o primeiro a saber." />
+
+  <meta property="og:title" content="Bikes Summit Awards — Os prémios que definem a indústria do ciclismo" />
+  <meta property="og:description" content="1ª Edição. 18 categorias. Inscrições em breve." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/logo-light.png" />
+  <meta name="theme-color" content="#0D0D0F" />
+
+  <!-- Tipografia oficial BSA (Elementor: Global Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/teaser.css" />
+</head>
+<body>
+
+  <!-- Decoração de fundo -->
+  <div class="bsa-mesh" aria-hidden="true"></div>
+  <div class="bsa-iso" aria-hidden="true"></div>
+
+  <main class="bsa-teaser">
+    <div class="bsa-container">
+
+      <!-- ============ 1. MARCA + TÍTULO ============ -->
+      <header class="bsa-teaser__head">
+        <div class="bsa-logo reveal" style="--d: .05s">
+          <img src="assets/img/logo-light.png" alt="Bikes Summit Awards" width="539" height="260" />
+        </div>
+
+        <span class="bsa-eyebrow is-center reveal" style="--d: .18s">1ª Edição • Edição 2027</span>
+
+        <h1 class="bsa-display bsa-teaser__title">
+          <span class="line"><span>Os prémios que definem</span></span>
+          <span class="line"><span>a indústria <em class="bsa-shine">do ciclismo</em>.</span></span>
+        </h1>
+
+        <!-- ============ 2. DATA DE INSCRIÇÕES ============ -->
+        <!-- ▼▼ ALTERAR AQUI A DATA quando estiver definida ▼▼ -->
+        <p class="bsa-teaser__date reveal" style="--d: .55s">
+          As inscrições começam dia <strong class="bsa-date-value">xx/xx</strong>
+        </p>
+        <!-- ▲▲ ALTERAR AQUI A DATA ▲▲ -->
+      </header>
+
+      <!-- ============ 3. CATEGORIAS ============ -->
+      <section class="bsa-teaser__cats reveal" style="--d: .7s" aria-labelledby="cats-title">
+        <p class="bsa-lead bsa-teaser__pitch" id="cats-title">
+          Coloque a sua marca, equipa ou herói anónimo em jogo.
+          <span class="bsa-teaser__pitch-sub">Conheça as categorias</span>
+        </p>
+
+        <ol class="bsa-cats" id="bsa-cats" aria-label="As 18 categorias dos Bikes Summit Awards">
+          <!-- Preenchido por assets/js/teaser.js -->
+        </ol>
+
+        <p class="bsa-cats__note">18 prémios. Uma indústria.</p>
+      </section>
+
+      <!-- ============ 4. AVISO POR EMAIL ============ -->
+      <section class="bsa-notify reveal" style="--d: .85s" aria-labelledby="notify-title">
+        <div class="bsa-notify__inner">
+          <h2 class="bsa-h2" id="notify-title">Quer ser o primeiro a ser avisado?</h2>
+          <p class="bsa-notify__text">
+            Deixe o seu email e receba o aviso assim que as inscrições abrirem.
+          </p>
+
+          <form class="bsa-notify__form" id="notify-form" novalidate>
+            <div class="bsa-notify__row">
+              <label class="sr-only" for="email">O seu email</label>
+              <input
+                class="bsa-input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="o.seu@email.com"
+                autocomplete="email"
+                required
+              />
+              <button class="bsa-btn bsa-btn--gold" type="submit">
+                Avisem-me <span class="bsa-arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+            <p class="bsa-notify__msg" id="notify-msg" role="status" aria-live="polite"></p>
+            <p class="bsa-hint">Sem spam. Apenas o essencial sobre a 1ª edição.</p>
+          </form>
+        </div>
+      </section>
+
+      <!-- ============ RODAPÉ ============ -->
+      <footer class="bsa-teaser__foot reveal" style="--d: 1s">
+        <span>© <span id="year">2026</span> Bikes Summit Awards</span>
+        <span class="dot" aria-hidden="true">◆</span>
+        <span>Site completo em breve</span>
+      </footer>
+
+    </div>
+  </main>
+
+  <script src="assets/js/teaser.js"></script>
+</body>
+</html>
