@@ -28,7 +28,7 @@
     'Distribuidor Especialista do Ano',
     'Retalhista Independente (IBD) do Ano',
     'Retalhista Omnicanal do Ano',
-    'Melhor Serviç para o Retalho',
+    'Melhor Serviço para o Retalho',
     'Retalhista Especialista do Ano',
     'Prémio de Advocacia do Ciclismo',
     'Campeão da Diversidade',
