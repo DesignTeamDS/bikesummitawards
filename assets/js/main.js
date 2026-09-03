@@ -187,7 +187,7 @@
       ]
     },
     {
-      n: "09", name: "Melhores Serviços para o Retalho", badge: "panel",
+      n: "09", name: "Melhor Serviço para o Retalho", badge: "panel",
       nominate: "Empresas que prestam serviços B2B essenciais ao trade — formação, sistemas EPOS/inventário, software de bike fitting, soluções de oficina, marketing ou serviços financeiros.",
       method: "Vencedor decidido por painel de jurados.",
       criteria: [
