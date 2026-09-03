@@ -271,7 +271,7 @@
       ]
     },
     {
-      n: "13", name: "Mulher do Ano", badge: "public",
+      n: "13", name: "Mulher do Ano no Ciclismo", badge: "public",
       nominate: "Uma mulher com impacto profundo e demonstrável na indústria do ciclismo no último ano — em liderança, inovação, advocacia, crescimento de negócio ou comunidade.",
       method: "Vencedora decidida por voto público aberto a toda a indústria.",
       criteria: [
