@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Painel do Júri — Bikes Summit Awards</title>
+  <meta name="description" content="Área reservada aos jurados dos Bikes Summit Awards. Avaliação das candidaturas por categoria." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="panel.css" />
+</head>
+<body class="pnl-body">
+
+<!-- [ELEMENTOR] HEADER — painel do júri (área reservada, sem navegação pública) -->
+<header class="bsa-header bsa-header--panel">
+  <div class="bsa-container bsa-header__inner">
+    <a class="bsa-logo" href="../index.html" aria-label="Bikes Summit Awards — início">
+      <img src="../assets/img/logo-light.png" alt="Bikes Summit Awards" />
+    </a>
+    <span class="pnl-tag">Painel do Júri</span>
+    <div class="pnl-user" id="pnl-user" hidden>
+      <span class="pnl-user__mail" id="pnl-mail">jurado@bikessummitawards.pt</span>
+      <button class="bsa-btn bsa-btn--ghost bsa-btn--sm" type="button" id="pnl-logout">Sair</button>
+    </div>
+  </div>
+</header>
+
+<main class="pnl-main">
+  <div class="bsa-mesh" aria-hidden="true"></div>
+
+  <!-- =========================================================
+       [ELEMENTOR] VISTA 1 — Autenticação
+       ========================================================= -->
+  <section class="pnl-view is-active" id="view-login">
+    <div class="bsa-container pnl-login">
+      <div class="bsa-form-card pnl-login__card">
+        <span class="bsa-eyebrow is-center">Área reservada</span>
+        <h1 class="bsa-h3 pnl-login__title">Painel de avaliação do júri</h1>
+        <p class="bsa-hint pnl-login__sub">Aceda com as credenciais criadas pela organização para avaliar as candidaturas das suas categorias.</p>
+
+        <form id="pnl-form" class="pnl-form" novalidate>
+          <div class="bsa-field">
+            <label class="bsa-label" for="pnl-email">Email do jurado <span class="req">*</span></label>
+            <input class="bsa-input" id="pnl-email" type="email" value="jurado@bikessummitawards.pt" required />
+          </div>
+          <div class="bsa-field">
+            <label class="bsa-label" for="pnl-pass">Palavra-passe <span class="req">*</span></label>
+            <input class="bsa-input" id="pnl-pass" type="password" value="123456" required />
+          </div>
+          <button class="bsa-btn bsa-btn--gold bsa-btn--block" type="submit">
+            Aceder às categorias <span class="bsa-arrow" aria-hidden="true">→</span>
+          </button>
+        </form>
+
+        <p class="bsa-hint pnl-login__note">Protótipo de apresentação — os dados estão pré-preenchidos e nenhuma informação é enviada.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       [ELEMENTOR] VISTA 2 — Categorias atribuídas
+       ========================================================= -->
+  <section class="pnl-view" id="view-cats">
+    <div class="bsa-container">
+      <div class="pnl-head">
+        <div>
+          <span class="bsa-eyebrow">As suas categorias</span>
+          <h1 class="bsa-h2 pnl-head__title">Categorias em avaliação.</h1>
+          <p class="bsa-lead pnl-head__lead">Analise a declaração de apoio de cada candidatura e aprove todos os indicados que cumpram os critérios da categoria. Não há número fixo de aprovações.</p>
+        </div>
+        <div class="pnl-progress" id="pnl-progress">
+          <span class="pnl-progress__label">Progresso</span>
+          <span class="pnl-progress__num"><b id="pnl-done">0</b> / <span id="pnl-total">6</span></span>
+          <span class="pnl-progress__sub">categorias concluídas</span>
+          <span class="pnl-progress__bar"><i id="pnl-bar"></i></span>
+        </div>
+      </div>
+
+      <div class="pnl-grid" id="pnl-cats"><!-- cartões injetados por panel.js --></div>
+
+      <p class="bsa-hint pnl-foot-note">Protótipo — categorias, candidatos e declarações são ilustrativos.</p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       [ELEMENTOR] VISTA 3 — Avaliação dos indicados
+       ========================================================= -->
+  <section class="pnl-view" id="view-noms">
+    <div class="bsa-container">
+      <button class="pnl-back" type="button" id="pnl-back">
+        <span aria-hidden="true">←</span> Voltar às categorias
+      </button>
+
+      <div class="pnl-head pnl-head--tight">
+        <div>
+          <span class="bsa-badge" id="pnl-cat-badge">Painel de Jurados</span>
+          <h1 class="bsa-h2 pnl-head__title" id="pnl-cat-title">Categoria</h1>
+          <p class="bsa-lead pnl-head__lead" id="pnl-cat-desc"></p>
+        </div>
+        <div class="pnl-counter">
+          <span class="pnl-counter__label">Aprovados</span>
+          <span class="pnl-counter__num" id="pnl-approved">0</span>
+          <span class="pnl-counter__sub">de <span id="pnl-nom-total">0</span> indicados</span>
+        </div>
+      </div>
+
+      <div class="pnl-noms" id="pnl-noms"><!-- indicados injetados por panel.js --></div>
+
+      <!-- [ELEMENTOR] Barra fixa — regra da categoria + declaração + submissão -->
+      <div class="pnl-bar">
+        <p class="pnl-bar__rule" id="pnl-rule"></p>
+        <label class="pnl-declare">
+          <input type="checkbox" id="pnl-declare" />
+          <span>Confirmo que os candidatos que aprovei cumprem os critérios desta categoria e assumo a responsabilidade pelo meu voto.</span>
+        </label>
+        <button class="bsa-btn bsa-btn--gold" type="button" id="pnl-finish" disabled>
+          Finalizar categoria <span class="bsa-arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="panel.js"></script>
+</body>
+</html>
