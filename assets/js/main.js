@@ -10,13 +10,23 @@
   "use strict";
 
   /* ---------------------------------------------------------
-     DADOS — 18 categorias (nomes traduzidos PT-PT)
+     DADOS — 22 prémios agrupados em 6 categorias (PT-PT)
      badge: 'panel' (Painel de Jurados) | 'public' (Voto Público) | 'team' (Equipa BSA)
      product: true => mostra campo "Produto" no formulário de inscrição
   --------------------------------------------------------- */
+  const BSA_GRUPOS = [
+    "Indústria & Marcas",
+    "Distribuição, Retalho & Serviços",
+    "Impacto & Inclusão",
+    "Special Awards",
+    "Experiências, Turismo & Comunicação",
+    "Desporto"
+  ];
+
   const BSA_CATEGORIES = [
+    /* ---------- INDÚSTRIA & MARCAS ---------- */
     {
-      n: "01", name: "Marca de Bicicletas do Ano", badge: "panel",
+      n: "01", grupo: "Indústria & Marcas", name: "Marca de Bicicletas do Ano", badge: "panel",
       nominate: "Marcas de bicicletas ativas que tenham lançado pelo menos um novo modelo ou linha de produto significativa no último ano, demonstrando excelência, inovação e impacto positivo na indústria.",
       method: "Vencedor decidido por painel de jurados.",
       criteria: [
@@ -39,7 +49,28 @@
       ]
     },
     {
-      n: "02", name: "Marca de Peças & Acessórios do Ano", badge: "panel",
+      n: "02", grupo: "Indústria & Marcas", name: "Inovação do Ano", badge: "panel", product: true,
+      nominate: "Qualquer empresa de ciclismo que tenha introduzido no mercado um produto, lançamento ou serviço verdadeiramente inovador a partir de 1 de janeiro de 2024.",
+      method: "Vencedor decidido por painel de jurados.",
+      criteria: [
+        ["Originalidade e inovação", "verdadeira novidade e criatividade da solução; avanço tecnológico no setor."],
+        ["Impacto e sucesso de mercado", "adoção, impacto positivo e sucesso mensurável desde o lançamento."],
+        ["Receção da indústria", "como foi recebida pelo trade, media e consumidores."]
+      ],
+      requirements: [
+        "Declaração de apoio (máx. 300 palavras) focada no produto/serviço.",
+        "Descrição clara da inovação e o que a torna disruptiva.",
+        "O problema que resolve ou as oportunidades que cria.",
+        "Exemplos e dados quantificáveis de impacto desde o lançamento."
+      ],
+      excellence: [
+        "Potencial disruptivo sobre práticas estabelecidas.",
+        "Sustentabilidade ou impacto social.",
+        "Escalabilidade e crescimento futuro."
+      ]
+    },
+    {
+      n: "03", grupo: "Indústria & Marcas", name: "Marca de Peças e Acessórios do Ano", badge: "panel",
       nominate: "Marcas de Peças & Acessórios (P&A) ativas que tenham lançado pelo menos um produto ou linha significativa no último ano, com excelência, inovação e impacto positivo.",
       method: "Vencedor decidido por painel de jurados.",
       criteria: [
@@ -61,29 +92,10 @@
         "Colaboração com marcas e talentos emergentes."
       ]
     },
+
+    /* ---------- DISTRIBUIÇÃO, RETALHO & SERVIÇOS ---------- */
     {
-      n: "03", name: "Inovação do Ano", badge: "panel", product: true,
-      nominate: "Qualquer empresa de ciclismo que tenha introduzido no mercado um produto, lançamento ou serviço verdadeiramente inovador a partir de 1 de janeiro de 2024.",
-      method: "Vencedor decidido por painel de jurados.",
-      criteria: [
-        ["Originalidade e inovação", "verdadeira novidade e criatividade da solução; avanço tecnológico no setor."],
-        ["Impacto e sucesso de mercado", "adoção, impacto positivo e sucesso mensurável desde o lançamento."],
-        ["Receção da indústria", "como foi recebida pelo trade, media e consumidores."]
-      ],
-      requirements: [
-        "Declaração de apoio (máx. 300 palavras) focada no produto/serviço.",
-        "Descrição clara da inovação e o que a torna disruptiva.",
-        "O problema que resolve ou as oportunidades que cria.",
-        "Exemplos e dados quantificáveis de impacto desde o lançamento."
-      ],
-      excellence: [
-        "Potencial disruptivo sobre práticas estabelecidas.",
-        "Sustentabilidade ou impacto social.",
-        "Escalabilidade e crescimento futuro."
-      ]
-    },
-    {
-      n: "04", name: "Distribuidor de Bicicletas do Ano", badge: "panel",
+      n: "04", grupo: "Distribuição, Retalho & Serviços", name: "Distribuidor de Bicicletas do Ano", badge: "panel",
       nominate: "Distribuidores que oferecem consistentemente uma gama de bicicletas de qualidade e um histórico comprovado de serviço fiável, eficiente e de apoio aos parceiros de retalho.",
       method: "Vencedor decidido por painel de jurados.",
       criteria: [
@@ -103,7 +115,7 @@
       ]
     },
     {
-      n: "05", name: "Distribuidor de Peças & Acessórios do Ano", badge: "panel",
+      n: "05", grupo: "Distribuição, Retalho & Serviços", name: "Distribuidor de Peças e Acessórios do Ano", badge: "panel",
       nominate: "Distribuidores de P&A que oferecem uma gama diversa e de qualidade, com um histórico comprovado de serviço fiável e de apoio aos parceiros de retalho.",
       method: "Vencedor decidido por painel de jurados.",
       criteria: [
@@ -123,7 +135,7 @@
       ]
     },
     {
-      n: "06", name: "Distribuidor Especialista do Ano", badge: "panel",
+      n: "06", grupo: "Distribuição, Retalho & Serviços", name: "Distribuidor Especialista do Ano", badge: "panel",
       nominate: "Distribuidores com perícia e serviço excecionais num segmento focado — e-bikes, BMX, MTB, triatlo, cargo bikes, ciclismo adaptado ou componentes de gama alta.",
       method: "Vencedor decidido por painel de jurados.",
       criteria: [
@@ -144,7 +156,7 @@
       ]
     },
     {
-      n: "07", name: "Retalhista Independente (IBD) do Ano", badge: "public",
+      n: "07", grupo: "Distribuição, Retalho & Serviços", name: "Retalhista Independente do Ano", badge: "public",
       nominate: "Lojas físicas de bicicletas, ou negócios focados em reparação e manutenção, a operar com três lojas ou menos.",
       method: "Vencedor decidido por voto público aberto a toda a indústria.",
       criteria: [
@@ -165,7 +177,7 @@
       ]
     },
     {
-      n: "08", name: "Retalhista Omnicanal do Ano", badge: "panel",
+      n: "08", grupo: "Distribuição, Retalho & Serviços", name: "Retalhista Omnicanal do Ano", badge: "panel",
       nominate: "Retalhistas que combinam presença física (bicicletas e/ou reparação) com uma loja online robusta e competitiva, oferecendo uma jornada coesa ao cliente.",
       method: "Vencedor decidido por painel de jurados.",
       criteria: [
@@ -187,28 +199,7 @@
       ]
     },
     {
-      n: "09", name: "Melhor Serviço para o Retalho", badge: "panel",
-      nominate: "Empresas que prestam serviços B2B essenciais ao trade — formação, sistemas EPOS/inventário, software de bike fitting, soluções de oficina, marketing ou serviços financeiros.",
-      method: "Vencedor decidido por painel de jurados.",
-      criteria: [
-        ["Impacto e valor mensuráveis", "impacto quantificável na eficiência, lucro ou crescimento dos retalhistas."],
-        ["Inovação e singularidade", "originalidade e distinção da solução."],
-        ["Perícia e apoio", "conhecimento especializado partilhado para capacitar os clientes."]
-      ],
-      requirements: [
-        "Declaração de apoio (máx. 300 palavras).",
-        "Descrição do serviço e como resolve desafios dos retalhistas.",
-        "Exemplos e dados de impacto no último ano.",
-        "Conhecimento e formação que a equipa oferece ao setor."
-      ],
-      excellence: [
-        "Parceria ativa com IBDs.",
-        "Alcance amplo através de múltiplas plataformas.",
-        "Impacto visível e benéfico para o trade."
-      ]
-    },
-    {
-      n: "10", name: "Retalhista Especialista do Ano", badge: "panel",
+      n: "09", grupo: "Distribuição, Retalho & Serviços", name: "Retalhista Especialista do Ano", badge: "panel",
       nominate: "Retalhistas que se destacam num segmento focado — e-bikes, cargo, gravel, MTB, track, builds personalizados, ciclismo adaptado, gama alta, vintage ou vestuário à medida.",
       method: "Vencedor decidido por painel de jurados.",
       criteria: [
@@ -229,29 +220,74 @@
       ]
     },
     {
-      n: "11", name: "Prémio de Advocacia do Ciclismo", badge: "panel",
-      nominate: "Organizações, iniciativas ou indivíduos que defendem o ciclismo — financiamento, educação, infraestrutura, segurança, participação ou mudanças de política que beneficiam o setor.",
+      n: "10", grupo: "Distribuição, Retalho & Serviços", name: "Melhor Serviço para o Retalho", badge: "panel",
+      nominate: "Empresas que prestam serviços B2B essenciais ao trade — formação, sistemas EPOS/inventário, software de bike fitting, soluções de oficina, marketing ou serviços financeiros.",
       method: "Vencedor decidido por painel de jurados.",
       criteria: [
-        ["Impacto positivo na indústria", "benefícios mensuráveis para o setor do ciclismo."],
+        ["Impacto e valor mensuráveis", "impacto quantificável na eficiência, lucro ou crescimento dos retalhistas."],
+        ["Inovação e singularidade", "originalidade e distinção da solução."],
+        ["Perícia e apoio", "conhecimento especializado partilhado para capacitar os clientes."]
+      ],
+      requirements: [
+        "Declaração de apoio (máx. 300 palavras).",
+        "Descrição do serviço e como resolve desafios dos retalhistas.",
+        "Exemplos e dados de impacto no último ano.",
+        "Conhecimento e formação que a equipa oferece ao setor."
+      ],
+      excellence: [
+        "Parceria ativa com IBDs.",
+        "Alcance amplo através de múltiplas plataformas.",
+        "Impacto visível e benéfico para o trade."
+      ]
+    },
+    {
+      n: "11", grupo: "Distribuição, Retalho & Serviços", name: "Melhor Serviço para Ciclistas", badge: "panel",
+      nominate: "Empresas que prestam serviços diretamente a quem pedala — seguros e assistência em viagem, aplicações de treino e navegação, bike fitting, nutrição desportiva, oficinas móveis ou plataformas de aluguer e partilha de bicicletas.",
+      method: "Vencedor decidido por painel de jurados.",
+      criteria: [
+        ["Valor para o ciclista", "utilidade real no dia a dia de quem pedala e clareza do problema que resolve."],
+        ["Qualidade e fiabilidade", "consistência do serviço, apoio ao cliente e cumprimento do que é prometido."],
+        ["Inovação e singularidade", "abordagem distintiva face à oferta já existente no mercado."],
+        ["Alcance e adesão", "número de utilizadores, crescimento e satisfação demonstrada."]
+      ],
+      requirements: [
+        "Declaração de apoio (máx. 300 palavras).",
+        "Descrição do serviço e do público de ciclistas que serve.",
+        "Exemplos concretos de impacto na experiência de quem o utiliza.",
+        "Provas de adesão e satisfação (utilizadores, avaliações, renovações)."
+      ],
+      excellence: [
+        "Acessibilidade de preço e cobertura territorial alargada.",
+        "Parcerias com lojas, clubes e organizadores de eventos.",
+        "Compromisso com a segurança e o bem-estar de quem pedala."
+      ]
+    },
+
+    /* ---------- IMPACTO & INCLUSÃO ---------- */
+    {
+      n: "12", grupo: "Impacto & Inclusão", name: "Prémio pela Promoção do Ciclismo", badge: "panel",
+      nominate: "Organizações, iniciativas ou indivíduos que promovem a prática do ciclismo — infraestrutura, segurança rodoviária, educação, financiamento, participação ou mudanças de política que beneficiam o setor.",
+      method: "Vencedor decidido por painel de jurados.",
+      criteria: [
+        ["Impacto na prática do ciclismo", "benefícios mensuráveis no número de praticantes e nas condições para pedalar."],
         ["Singularidade e inovação", "originalidade e distinção da abordagem."],
         ["Resultados alcançados", "marcos e sucessos significativos nos últimos 12 meses."]
       ],
       requirements: [
         "Declaração de apoio (máx. 300 palavras).",
-        "Descrição do serviço ou iniciativa de advocacia.",
-        "Como beneficia a indústria do ciclismo.",
+        "Descrição da iniciativa de promoção do ciclismo.",
+        "Como beneficia a prática e a indústria do ciclismo.",
         "Exemplos e dados de impacto."
       ],
       excellence: [
-        "Colaboração com IBDs.",
+        "Colaboração com lojas, clubes e autarquias.",
         "Alcance e envolvimento amplos.",
         "Influência mainstream e consciencialização pública."
       ]
     },
     {
-      n: "12", name: "Campeão da Diversidade", badge: "team",
-      nominate: "Indivíduo ou organização com compromisso e impacto mensurável em diversidade e inclusão na indústria do ciclismo — combatendo sub-representação e criando ambientes acolhedores.",
+      n: "13", grupo: "Impacto & Inclusão", name: "Prémio Diversidade & Inclusão", badge: "team",
+      nominate: "Indivíduo ou organização com compromisso e impacto mensurável em diversidade e inclusão no ciclismo — combatendo a sub-representação e criando ambientes acolhedores.",
       method: "Vencedor decidido pela equipa Bikes Summit Awards.",
       criteria: [
         ["Âmbito e profundidade", "natureza, escala e compromisso de longo prazo das iniciativas."],
@@ -270,15 +306,17 @@
         "Compromisso de longo prazo e interseccionalidade."
       ]
     },
+
+    /* ---------- SPECIAL AWARDS ---------- */
     {
-      n: "13", name: "Mulher do Ano no Ciclismo", badge: "public",
-      nominate: "Uma mulher com impacto profundo e demonstrável na indústria do ciclismo no último ano — em liderança, inovação, advocacia, crescimento de negócio ou comunidade.",
+      n: "14", grupo: "Special Awards", name: "Mulher do Ciclismo do Ano", badge: "public",
+      nominate: "Uma mulher com impacto profundo e demonstrável no ciclismo no último ano — em liderança, inovação, promoção da modalidade, crescimento de negócio ou comunidade.",
       method: "Vencedora decidida por voto público aberto a toda a indústria.",
       criteria: [
-        ["Liderança e influência", "mudança positiva e padrões de excelência na indústria."],
+        ["Liderança e influência", "mudança positiva e padrões de excelência no setor."],
         ["Inovação e visão", "contributo para novos produtos, serviços ou estratégias."],
-        ["Advocacia e comunidade", "defesa de causas, diversidade e construção de comunidades."],
-        ["Sucesso e inspiração", "crescimento de negócio e papel de mentoria/modelo."]
+        ["Promoção e comunidade", "defesa de causas, diversidade e construção de comunidades."],
+        ["Sucesso e inspiração", "crescimento de negócio e papel de mentoria ou de modelo."]
       ],
       requirements: [
         "Declaração de apoio (máx. 300 palavras) — pela própria ou por terceiros.",
@@ -293,29 +331,7 @@
       ]
     },
     {
-      n: "14", name: "Evento do Ano", badge: "public",
-      nominate: "Qualquer evento, série ou encontro de ciclismo — feiras, provas (estrada, MTB, BMX, track), festivais, sportives, group rides ou consumer shows — com impacto positivo no último ano.",
-      method: "Vencedor decidido por voto público aberto a toda a indústria.",
-      criteria: [
-        ["Experiência do participante", "qualidade, organização, ambiente e relação qualidade/preço."],
-        ["Impacto e perfil na indústria", "contributo para promover o ciclismo e o trade."],
-        ["Excelência operacional", "eficiência, segurança, sustentabilidade e profissionalismo."],
-        ["Inovação e singularidade", "elementos distintivos que diferenciam o evento."]
-      ],
-      requirements: [
-        "Declaração de apoio (máx. 300 palavras).",
-        "Descrição do evento: propósito, escala e público.",
-        "Como entregou uma experiência excecional.",
-        "Impacto na indústria, comunidade ou participação."
-      ],
-      excellence: [
-        "Compromisso com sustentabilidade ou inclusão.",
-        "Cobertura mediática e envolvimento público.",
-        "Apoio a negócios locais e crescimento de adesão."
-      ]
-    },
-    {
-      n: "15", name: "Mecânico do Ano", badge: "public",
+      n: "15", grupo: "Special Awards", name: "Mecânico do Ano", badge: "public",
       nominate: "Mecânicos de bicicletas individuais com proficiência técnica excecional, excelente serviço ao cliente e paixão por manter os ciclistas em movimento.",
       method: "Vencedor decidido por voto público aberto a toda a indústria.",
       criteria: [
@@ -338,7 +354,7 @@
       ]
     },
     {
-      n: "16", name: "Herói Anónimo do Ano", badge: "public",
+      n: "16", grupo: "Special Awards", name: "Herói Anónimo do Ano", badge: "public",
       nominate: "Um indivíduo com contributo significativo, mas muitas vezes despercebido — quem trabalha nos bastidores e é vital para a saúde e sucesso do trade.",
       method: "Vencedor decidido por voto público aberto a toda a indústria.",
       criteria: [
@@ -359,8 +375,10 @@
         "Resiliência notável e mentoria informal."
       ]
     },
+
+    /* ---------- EXPERIÊNCIAS, TURISMO & COMUNICAÇÃO ---------- */
     {
-      n: "17", name: "Media de Ciclismo do Ano", badge: "public",
+      n: "17", grupo: "Experiências, Turismo & Comunicação", name: "Media de Ciclismo do Ano", badge: "public",
       nominate: "Qualquer plataforma de media de ciclismo de Portugal — publicações, podcasts, revistas, websites, canais de YouTube ou redes sociais — com conteúdo consistente e envolvente.",
       method: "Vencedor decidido por voto público aberto a toda a indústria.",
       criteria: [
@@ -382,7 +400,29 @@
       ]
     },
     {
-      n: "18", name: "Melhor Empresa de Cicloturismo", badge: "panel",
+      n: "18", grupo: "Experiências, Turismo & Comunicação", name: "Evento do Ano", badge: "public",
+      nominate: "Qualquer evento, série ou encontro de ciclismo — feiras, provas (estrada, MTB, BMX, track), festivais, sportives, group rides ou consumer shows — com impacto positivo no último ano.",
+      method: "Vencedor decidido por voto público aberto a toda a indústria.",
+      criteria: [
+        ["Experiência do participante", "qualidade, organização, ambiente e relação qualidade/preço."],
+        ["Impacto e perfil na indústria", "contributo para promover o ciclismo e o trade."],
+        ["Excelência operacional", "eficiência, segurança, sustentabilidade e profissionalismo."],
+        ["Inovação e singularidade", "elementos distintivos que diferenciam o evento."]
+      ],
+      requirements: [
+        "Declaração de apoio (máx. 300 palavras).",
+        "Descrição do evento: propósito, escala e público.",
+        "Como entregou uma experiência excecional.",
+        "Impacto na indústria, comunidade ou participação."
+      ],
+      excellence: [
+        "Compromisso com sustentabilidade ou inclusão.",
+        "Cobertura mediática e envolvimento público.",
+        "Apoio a negócios locais e crescimento de adesão."
+      ]
+    },
+    {
+      n: "19", grupo: "Experiências, Turismo & Comunicação", name: "Melhor Empresa de Cicloturismo", badge: "panel",
       nominate: "Empresas de cicloturismo — operadores de viagens, agências e organizadores de experiências de bicicleta — que ofereçam percursos, estadias ou pacotes de qualidade, promovendo o turismo sobre duas rodas.",
       method: "Vencedor decidido por painel de jurados.",
       criteria: [
@@ -401,6 +441,74 @@
         "Parcerias com IBDs, marcas e comunidades locais.",
         "Compromisso com a sustentabilidade e o turismo responsável.",
         "Acessibilidade e inclusão nas experiências oferecidas."
+      ]
+    },
+
+    /* ---------- DESPORTO ---------- */
+    {
+      n: "20", grupo: "Desporto", name: "Melhor Equipa de Ciclismo Profissional do Ano", badge: "public",
+      nominate: "Equipas profissionais de ciclismo registadas — estrada, pista, BTT ou ciclocrosse — com atividade competitiva relevante na última temporada.",
+      method: "Vencedor decidido por voto público aberto a toda a indústria.",
+      criteria: [
+        ["Resultados desportivos", "desempenho competitivo ao longo da temporada, em provas nacionais e internacionais."],
+        ["Estrutura e profissionalismo", "organização, corpo técnico e condições de treino e apoio aos atletas."],
+        ["Formação e desenvolvimento", "aposta em jovens talentos e progressão dos corredores dentro da equipa."],
+        ["Representação e impacto", "visibilidade dada ao ciclismo nacional e ligação à comunidade."]
+      ],
+      requirements: [
+        "Declaração de apoio (máx. 300 palavras).",
+        "Resultados mais relevantes da temporada.",
+        "Estrutura da equipa e condições oferecidas aos atletas.",
+        "Iniciativas de formação, promoção do ciclismo ou ligação à comunidade."
+      ],
+      excellence: [
+        "Política ativa de igualdade e aposta em equipas femininas.",
+        "Transparência e boas práticas antidopagem.",
+        "Programas de acompanhamento e transição de carreira."
+      ]
+    },
+    {
+      n: "21", grupo: "Desporto", name: "Melhor Ciclista Profissional do Ano", badge: "public",
+      nominate: "Ciclistas profissionais em atividade, de qualquer disciplina, com resultados de relevo na última temporada.",
+      method: "Vencedor decidido por voto público aberto a toda a indústria.",
+      criteria: [
+        ["Resultados e consistência", "desempenho ao longo de toda a época, e não apenas num resultado isolado."],
+        ["Progressão e superação", "evolução face a temporadas anteriores e resposta à adversidade."],
+        ["Espírito desportivo", "conduta ética, respeito pelos adversários e cumprimento do regulamento."],
+        ["Representação e inspiração", "papel como referência para praticantes e para a modalidade."]
+      ],
+      requirements: [
+        "Declaração de apoio (máx. 300 palavras) — pelo próprio ou por terceiros.",
+        "Principais resultados da temporada.",
+        "Contributo para a projeção da modalidade.",
+        "Exemplos de conduta desportiva exemplar."
+      ],
+      excellence: [
+        "Envolvimento em ações de promoção do ciclismo junto dos mais novos.",
+        "Superação de lesão ou de adversidade relevante.",
+        "Contributo para causas sociais ligadas à bicicleta."
+      ]
+    },
+    {
+      n: "22", grupo: "Desporto", name: "Melhor Ciclista Profissional Rookie do Ano", badge: "public",
+      nominate: "Ciclistas na primeira ou segunda época como profissionais, de qualquer disciplina, que se estrearam com resultados ou desempenho de destaque.",
+      method: "Vencedor decidido por voto público aberto a toda a indústria.",
+      criteria: [
+        ["Estreia no profissionalismo", "impacto imediato na primeira época ao mais alto nível."],
+        ["Potencial e progressão", "margem de evolução demonstrada ao longo da temporada."],
+        ["Adaptação e maturidade", "resposta às exigências físicas e mentais do calendário profissional."],
+        ["Espírito desportivo", "conduta ética e postura perante a equipa e os adversários."]
+      ],
+      requirements: [
+        "Declaração de apoio (máx. 300 palavras).",
+        "Ano de estreia como profissional e equipa em que compete.",
+        "Resultados e desempenhos mais relevantes da época.",
+        "Indicadores de progressão ao longo da temporada."
+      ],
+      excellence: [
+        "Percurso de formação em clubes ou escolas nacionais.",
+        "Conciliação entre alta competição e formação académica.",
+        "Papel de exemplo para os escalões de formação."
       ]
     }
   ];
@@ -460,27 +568,30 @@
      GALERIA DE HONRA — vencedores (simulação edição 2027)
      NOTA: logótipos/marcas e nomes são ilustrativos (protótipo).
   --------------------------------------------------------- */
-  // [categoria, vencedor, 2.º lugar, 3.º lugar] — 2.º/3.º apenas em texto.
-  // Categorias individuais (Mulher, Mecânico, Herói) têm só vencedor.
+  // [categoria, vencedor] — cada categoria distingue um único vencedor.
   const WINNERS_2027 = [
-    ["Marca de Bicicletas do Ano", "VeloMax Bikes", "TerraCycle", "Norte Bike"],
-    ["Marca de Peças & Acessórios do Ano", "CycloGear", "ProRide", "PedalTech"],
-    ["Inovação do Ano", "AeroDrive Systems", "SmartWheel", "EcoCharge"],
-    ["Distribuidor de Bicicletas do Ano", "IberBike Distribuição", "Roda Forte", "BiciCentral"],
-    ["Distribuidor de Peças & Acessórios do Ano", "ProParts Iberia", "Atlantic Parts", "VeloSupply"],
-    ["Distribuidor Especialista do Ano", "E-Volt Distribuição", "MTB Pro", "Gravel One"],
-    ["Retalhista Independente (IBD) do Ano", "Bike Garage Lisboa", "Loja do Ciclista", "Oficina Norte"],
-    ["Retalhista Omnicanal do Ano", "CicloStore", "BikeShop24", "Pedal Online"],
-    ["Melhores Serviços para o Retalho", "RetailUp Solutions", "ShopFlow", "BikePOS"],
-    ["Retalhista Especialista do Ano", "Gravel & Co.", "E-Bike Center", "Vintage Velo"],
-    ["Prémio de Advocacia do Ciclismo", "Movimento +Bici", "Ruas Livres", "Pedalar Seguro"],
-    ["Campeão da Diversidade", "Rodas para Todos", "Ciclismo Inclusivo", "Bike & All"],
-    ["Mulher do Ano", "Helena Marques"],
-    ["Evento do Ano", "Granfondo Atlântico", "Volta Urbana", "MTB Festival"],
+    ["Marca de Bicicletas do Ano", "VeloMax Bikes"],
+    ["Inovação do Ano", "AeroDrive Systems"],
+    ["Marca de Peças e Acessórios do Ano", "CycloGear"],
+    ["Distribuidor de Bicicletas do Ano", "IberBike Distribuição"],
+    ["Distribuidor de Peças e Acessórios do Ano", "ProParts Iberia"],
+    ["Distribuidor Especialista do Ano", "E-Volt Distribuição"],
+    ["Retalhista Independente do Ano", "Bike Garage Lisboa"],
+    ["Retalhista Omnicanal do Ano", "CicloStore"],
+    ["Retalhista Especialista do Ano", "Gravel & Co."],
+    ["Melhor Serviço para o Retalho", "RetailUp Solutions"],
+    ["Melhor Serviço para Ciclistas", "RideCare Seguros"],
+    ["Prémio pela Promoção do Ciclismo", "Movimento +Bici"],
+    ["Prémio Diversidade & Inclusão", "Rodas para Todos"],
+    ["Mulher do Ciclismo do Ano", "Helena Marques"],
     ["Mecânico do Ano", "Paulo Trindade"],
     ["Herói Anónimo do Ano", "Carla Sousa"],
-    ["Media de Ciclismo do Ano", "Pedal Magazine", "Ciclo Podcast", "Duas Rodas TV"],
-    ["Melhor Empresa de Cicloturismo", "Rota Vélo Tours", "Ibéria Bike Travel", "Trilhos & Pedais"]
+    ["Media de Ciclismo do Ano", "Pedal Magazine"],
+    ["Evento do Ano", "Granfondo Atlântico"],
+    ["Melhor Empresa de Cicloturismo", "Rota Vélo Tours"],
+    ["Melhor Equipa de Ciclismo Profissional do Ano", "Equipa Atlântico Pro"],
+    ["Melhor Ciclista Profissional do Ano", "Tomás Ferreira"],
+    ["Melhor Ciclista Profissional Rookie do Ano", "Diogo Vasques", "Martim Reis", "Afonso Cardoso"]
   ];
   const winnersGrid = $("#bsa-winners-grid");
   if (winnersGrid) {
@@ -489,20 +600,13 @@
       const w = n.replace(/[^\p{L}\s]/gu, " ").split(/\s+/).filter(Boolean);
       return (w.length >= 2 ? w[0][0] + w[1][0] : (w[0] || "").slice(0, 2)).toUpperCase();
     };
-    winnersGrid.innerHTML = WINNERS_2027.map(([cat, name, second, third], i) => {
-      const podium = (second || third) ? `
-        <div class="bsa-winner-card__podium">
-          ${second ? `<div class="bsa-winner-card__place"><span class="bsa-winner-card__pos">2.º</span><span class="bsa-winner-card__pname">${second}</span></div>` : ""}
-          ${third ? `<div class="bsa-winner-card__place"><span class="bsa-winner-card__pos">3.º</span><span class="bsa-winner-card__pname">${third}</span></div>` : ""}
-        </div>` : "";
-      return `
+    winnersGrid.innerHTML = WINNERS_2027.map(([cat, name], i) => `
       <article class="bsa-winner-card" data-reveal data-reveal-delay="${(i % 4) + 1}">
         <span class="bsa-winner-card__cat">${cat}</span>
         <div class="bsa-winner-card__logo" aria-hidden="true"><span>${initials(name)}</span></div>
         <h3 class="bsa-winner-card__name">${name}</h3>
-        <span class="bsa-winner-card__badge">${trophy} Vencedor · 2027</span>${podium}
-      </article>`;
-    }).join("");
+        <span class="bsa-winner-card__badge">${trophy} Vencedor · 2027</span>
+      </article>`).join("");
     observeReveals();
   }
 
@@ -523,16 +627,36 @@
           <span class="bsa-cat-card__more">Ver critérios <span aria-hidden="true">→</span></span>
         </div>
       </button>`;
-    grid.innerHTML = BSA_CATEGORIES.map(cardHTML).join("");
+    /* Render agrupado: título da categoria + grelha dos respetivos prémios.
+       Em Elementor: um Loop Grid por grupo, ou Loop Grid com "Group by" no campo grupo. */
+    grid.innerHTML = BSA_GRUPOS.map(g => {
+      const doGrupo = BSA_CATEGORIES.filter(c => c.grupo === g);
+      if (!doGrupo.length) return "";
+      return `
+        <section class="bsa-cat-group" data-grupo="${g}">
+          <div class="bsa-cat-group__head" data-reveal>
+            <h2 class="bsa-cat-group__title">${g}</h2>
+            <span class="bsa-cat-group__count">${doGrupo.length} ${doGrupo.length === 1 ? "prémio" : "prémios"}</span>
+          </div>
+          <div class="bsa-cat-group__grid">${doGrupo.map(cardHTML).join("")}</div>
+        </section>`;
+    }).join("");
     observeReveals();
 
-    // Filtros
+    // Filtros por método de votação — esconde também os grupos que ficam vazios
     $$("[data-filter]").forEach(btn => btn.addEventListener("click", () => {
       const f = btn.dataset.filter;
       $$("[data-filter]").forEach(b => b.classList.toggle("is-active", b === btn));
-      $$(".bsa-cat-card", grid).forEach(card => {
-        const show = f === "all" || card.dataset.badge === f;
-        card.style.display = show ? "" : "none";
+      $$(".bsa-cat-group", grid).forEach(sec => {
+        let visiveis = 0;
+        $$(".bsa-cat-card", sec).forEach(card => {
+          const show = f === "all" || card.dataset.badge === f;
+          card.style.display = show ? "" : "none";
+          if (show) visiveis++;
+        });
+        sec.style.display = visiveis ? "" : "none";
+        const cnt = $(".bsa-cat-group__count", sec);
+        if (cnt) cnt.textContent = `${visiveis} ${visiveis === 1 ? "prémio" : "prémios"}`;
       });
     }));
 
@@ -547,7 +671,7 @@
         return `<li>${it}</li>`;
       }).join("");
       panel.innerHTML = `
-        <span class="bsa-modal__num">CATEGORIA ${c.n} / 18</span>
+        <span class="bsa-modal__num">CATEGORIA ${c.n} / 22</span>
         <h2 class="bsa-modal__title" id="bsa-modal-title">${c.name}</h2>
         <span class="bsa-badge bsa-badge--${c.badge}">${BADGE_LABEL[c.badge]}</span>
         <div class="bsa-modal__block">
@@ -648,11 +772,14 @@
     // Marcas/pessoas ilustrativas (protótipo).
     const FINALISTS = {
       "07": ["Bike Garage Lisboa", "Loja do Ciclista", "Oficina Roda Norte", "Pedal & Companhia", "Ciclo Ponto Porto"],
-      "13": ["Helena Marques", "Sofia Ramalho", "Beatriz Antunes", "Marta Quintela", "Inês Vasconcelos"],
-      "14": ["Granfondo Atlântico", "Volta Urbana", "MTB Festival Gerês", "Bike Expo Porto", "Maratona do Douro"],
+      "14": ["Helena Marques", "Sofia Ramalho", "Beatriz Antunes", "Marta Quintela", "Inês Vasconcelos"],
       "15": ["Paulo Trindade", "Rui Carvalho", "André Lopes", "Miguel Faria", "Tiago Sousa"],
       "16": ["Carla Sousa", "João Mendes", "Ana Pires", "Ricardo Brito", "Filipa Nunes"],
-      "17": ["Pedal Magazine", "Ciclo Podcast", "Duas Rodas TV", "Bike Channel PT", "Revista Estrada"]
+      "17": ["Pedal Magazine", "Ciclo Podcast", "Duas Rodas TV", "Bike Channel PT", "Revista Estrada"],
+      "18": ["Granfondo Atlântico", "Volta Urbana", "MTB Festival Gerês", "Bike Expo Porto", "Maratona do Douro"],
+      "20": ["Equipa Atlântico Pro", "Team Douro Racing", "Sagres Cycling", "Norte Racing Team", "Lusa Bike Team"],
+      "21": ["Tomás Ferreira", "Rodrigo Nunes", "Vasco Antunes", "Duarte Machado", "Gonçalo Rebelo"],
+      "22": ["Diogo Vasques", "Martim Reis", "Afonso Cardoso", "Salvador Pinho", "Rafael Bettencourt"]
     };
     const vInitials = (n) => {
       const w = n.replace(/[^\p{L}\s]/gu, " ").split(/\s+/).filter(Boolean);
