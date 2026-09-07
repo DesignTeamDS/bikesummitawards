@@ -8,7 +8,7 @@
      (relação jurado × categoria definida pelo administrador).
    - O jurado aprova quantos indicados quiser, desde que cumpram os
      critérios. A contagem de votos é que define:
-       · categorias de painel  -> os 3 mais votados formam o pódio
+       · categorias de painel  -> o mais votado é o vencedor da categoria
        · categorias de público -> os 5 mais votados vão a voto público
    ============================================================ */
 (function () {
@@ -55,7 +55,7 @@
 
   /* ---------------------------------------------------------
      CATEGORIAS ATRIBUÍDAS A ESTE JURADO (exemplo — 6)
-     tipo: 'panel' (pódio pelo júri) | 'public' (shortlist p/ público)
+     tipo: 'panel' (vencedor pelo júri) | 'public' (shortlist p/ público)
   --------------------------------------------------------- */
   const CATEGORIAS = [
     {
@@ -123,7 +123,7 @@
   ];
 
   const REGRAS = {
-    panel: "<b>Decisão do júri.</b> Os 3 candidatos mais votados pelo conjunto dos jurados formam o pódio — 1.º, 2.º e 3.º lugares.",
+    panel: "<b>Decisão do júri.</b> O candidato mais votado pelo conjunto dos jurados é o vencedor da categoria.",
     public: "<b>Apuramento para voto público.</b> Os 5 candidatos mais votados pelo conjunto dos jurados seguem para a votação do público."
   };
   const ROTULO = { panel: "Painel de Jurados", public: "Voto Público" };
