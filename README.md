@@ -13,13 +13,12 @@ Dark mode premium ("cerimónia de gala tecnológica"): fundo near-black, **doura
 Cada secção da arquitetura tem **a sua própria página**. A homepage é só apresentação + teasers que encaminham para cada página.
 ```
 site/
-├── index.html            Homepage — Hero + teasers de cada menu (Como Funciona, Categorias, Patrocinadores, Bilhetes, CTA)
+├── index.html            Homepage — Hero + teasers de cada menu (Como Funciona, Categorias, Patrocinadores, CTA)
 ├── como-funciona.html    Timeline das 3 fases + detalhe do processo + countdown
 ├── categorias.html       17 categorias (grid + filtros + painel de detalhe)
 ├── patrocinadores.html   Tiers de patrocínio + porquê patrocinar
 ├── contactos.html        Formas de contacto + formulário
 ├── inscricoes.html       Regras + formulário de candidatura (campo "Produto" condicional)
-├── bilhetes.html         Bilhetes (pricing), o que esperar, FAQ
 └── assets/
     ├── css/style.css     Sistema de design completo (tokens .bsa-* = Global Colors/Fonts)
     ├── js/main.js        17 categorias (dados), modal, filtros, countdown, lógica do form
@@ -33,7 +32,6 @@ site/
 4. **Patrocinadores** — logo wall em tiers (Principal / Ouro / Parceiros).
 5. **Contactos** — formas de contacto + formulário.
 6. **Inscrições** — regras + formulário (Categoria, Empresa, Declaração de Apoio, Resumo, Upload de logo, Indicação/Nomeação; campo **Produto** surge dinamicamente para categorias de produto, ex.: *Inovação do Ano*).
-7. **Bilhetes** — Individual / Mesa Corporativa / VIP com gatilhos de conversão.
 
 ## ▶️ Ver localmente
 ```bash
